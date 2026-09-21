@@ -1,0 +1,5 @@
+{
+  "id": "M26_resp_word0",
+  "class": "datapath",
+  "desc": "Read response always returns word 0 of the line regardless of offset."
+}

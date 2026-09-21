@@ -1,0 +1,10 @@
+{
+  "id": "H11_dirty_wbtrunc_flush",
+  "class": "composed",
+  "parts": [
+    "M01_whit_no_dirty",
+    "M15_wb_truncated",
+    "M21_flush_done_after_set0"
+  ],
+  "desc": "Write hit fails to mark the line dirty; later eviction silently drops the write. + Writeback terminates one beat early; the last word of the line never reaches memory. + Flush completion compares the scan index against 0; only set 0 is flushed."
+}

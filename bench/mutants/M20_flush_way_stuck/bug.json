@@ -1,0 +1,5 @@
+{
+  "id": "M20_flush_way_stuck",
+  "class": "fsm",
+  "desc": "Flush scan never toggles the way pointer; the scan never advances."
+}

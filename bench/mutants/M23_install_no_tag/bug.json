@@ -1,0 +1,5 @@
+{
+  "id": "M23_install_no_tag",
+  "class": "fsm",
+  "desc": "Refill never updates the tag; retry misses again or hits stale tags with new data."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "M21_flush_done_after_set0",
+  "class": "fsm",
+  "desc": "Flush completion compares the scan index against 0; only set 0 is flushed."
+}

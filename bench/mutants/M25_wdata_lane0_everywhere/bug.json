@@ -1,0 +1,5 @@
+{
+  "id": "M25_wdata_lane0_everywhere",
+  "class": "datapath",
+  "desc": "Every byte lane is written with wdata byte 0."
+}

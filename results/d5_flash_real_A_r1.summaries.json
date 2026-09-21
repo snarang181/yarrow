@@ -1,0 +1,526 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 3025.2,
+    "usage": {
+      "llm_calls": 10,
+      "sims": 17,
+      "cost_usd": 2.9696
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 10,
+        "sims": 17,
+        "cost_usd": 2.9695929999999997
+      },
+      "elapsed_s": 3025.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "N/A (cannot determine due to file corruption)",
+      "module": "xlnxdemo (cannot determine due to file corruption)",
+      "event": "N/A (cannot determine due to file corruption)",
+      "mechanism": "N/A (cannot determine due to file corruption)"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2796.0,
+    "usage": {
+      "llm_calls": 17,
+      "sims": 48,
+      "cost_usd": 3.547
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 17,
+        "sims": 48,
+        "cost_usd": 3.5469539999999995
+      },
+      "elapsed_s": 2795.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "axi_bvalid",
+      "module": "xlnxdemo",
+      "event": "During a write transaction, after the write data and address are accepted (slv_reg_wren is asserted), axi_bvalid fails to assert, causing S_AXI_BVALID to remain low.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2733.4,
+    "usage": {
+      "llm_calls": 19,
+      "sims": 72,
+      "cost_usd": 2.4244
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 19,
+        "sims": 72,
+        "cost_usd": 2.424369
+      },
+      "elapsed_s": 2733.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "M_AXIS_TVALID",
+      "module": "xlnxstream_2018_3",
+      "event": "M_AXIS_TVALID is asserted (1) on the first and second active clock cycles after `M_AXIS_ARESETN` deasserts, when it should be 0. This occurs when `read_pointer` is 0 and `NUMBER_OF_OUTPUT_WORDS > 0`.",
+      "mechanism": "timing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2751.5,
+    "usage": {
+      "llm_calls": 17,
+      "sims": 73,
+      "cost_usd": 2.4082
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 17,
+        "sims": 73,
+        "cost_usd": 2.408155
+      },
+      "elapsed_s": 2751.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "output_axis_tlast_int",
+      "module": "axis_adapter",
+      "event": "When an input packet with `input_axis_tlast` asserted is received, and the input bus is wider than the output bus (i.e., `EXPAND_BUS` is false), the `output_axis_tlast_int` signal is not correctly asserted on the final output word corresponding to that input packet.",
+      "mechanism": "ordering"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "status": "failed",
+    "relabeled_from": {
+      "status": "error",
+      "error_tail": "n open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'runs/d5_flash_real_A_r1/axis-async-fifo-c4/task_axis-async-fifo-c4/sandbox/rtl/axis_async_fifo.v'\n",
+      "at": "2026-09-15T04:45:12+00:00"
+    },
+    "note": "agent removed source files (renamed axis_async_fifo.v, deleted axis_fifo_wrapper.v); verifier could not rebuild",
+    "usage": {
+      "llm_calls": 0,
+      "sims": 0,
+      "cost_usd": 0.0
+    },
+    "cause": {}
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2821.2,
+    "usage": {
+      "llm_calls": 18,
+      "sims": 86,
+      "cost_usd": 1.5255
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 18,
+        "sims": 86,
+        "cost_usd": 1.5255089999999998
+      },
+      "elapsed_s": 2821.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "wr_ptr_cur_reg",
+      "module": "axis_fifo",
+      "event": "s_axis_tlast asserted for a good frame, causing wr_ptr_next to be set from potentially misaligned wr_ptr_cur_next.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2859.4,
+    "usage": {
+      "llm_calls": 11,
+      "sims": 54,
+      "cost_usd": 5.178
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 11,
+        "sims": 54,
+        "cost_usd": 5.177970999999999
+      },
+      "elapsed_s": 2859.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "m_axis_tvalid",
+      "module": "axis_fifo",
+      "event": "The FIFO's `m_axis_tvalid` output is asserted one cycle too early, on the first possible clock cycle after data is written into the FIFO, effectively providing a 1-cycle latency from input to output valid assertion when the test expects 2-cycle latency.",
+      "mechanism": "Timing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 26.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0087
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.008662
+      },
+      "elapsed_s": 25.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "rst` is asserted while `drop_frame` is high.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 3,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 541.1,
+    "usage": {
+      "llm_calls": 4,
+      "sims": 5,
+      "cost_usd": 0.313
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 4,
+        "sims": 5,
+        "cost_usd": 0.31300700000000004
+      },
+      "elapsed_s": 540.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "frame_len_valid_reg",
+      "module": "axis_frame_len",
+      "event": "frame_len_valid_reg incorrectly remains high at the clock edge following a cycle where its output was consumed (frame_len_ready) simultaneously with a new frame completing (monitor_axis_tlast), due to incorrect assignment priority in the always @* block.",
+      "mechanism": "LOGIC_ERROR"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 76,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2893.5,
+    "usage": {
+      "llm_calls": 15,
+      "sims": 107,
+      "cost_usd": 3.6032
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 15,
+        "sims": 107,
+        "cost_usd": 3.6031709999999997
+      },
+      "elapsed_s": 2893.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "s_axis_tready_q",
+      "module": "axis_switch",
+      "event": "s_axis_tvalid = 4'b1111, m_axis_tready = 1'b1, rst = 1'b0 (at the start of clock cycle 2). The registered `s_axis_tready_q` remains at 0 from the previous reset cycle, instead of combinatorially reflecting the expected 13.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 2145.9,
+    "usage": {
+      "llm_calls": 14,
+      "sims": 57,
+      "cost_usd": 1.5498
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 14,
+        "sims": 57,
+        "cost_usd": 1.54977
+      },
+      "elapsed_s": 2145.6,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "res_exp_next",
+      "module": "fadd",
+      "event": "The `tmp_exp` signal is not adjusted to reflect the `2^S` scaling of the `tmp_mant` before the final exponent calculation.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 173,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "failed",
+    "wall_s": 2702.8,
+    "usage": {
+      "llm_calls": 12,
+      "sims": 87,
+      "cost_usd": 5.1799
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 12,
+        "sims": 87,
+        "cost_usd": 5.179870000000001
+      },
+      "elapsed_s": 2702.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_cmd_state",
+      "module": "sdspi",
+      "event": "At time 0, before the first positive clock edge, r_cmd_state is not initialized to 3'h0 as expected by the testbench.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2740.2,
+    "usage": {
+      "llm_calls": 16,
+      "sims": 67,
+      "cost_usd": 3.9135
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 16,
+        "sims": 67,
+        "cost_usd": 3.9134760000000006
+      },
+      "elapsed_s": 2739.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "ll_cmd_stb",
+      "module": "sdspi",
+      "event": "ll_cmd_stb was set high by `new_cmd` but never reset to `0`, preventing `ll_idle` from ever going high and deadlocking the state machine.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 3042.6,
+    "usage": {
+      "llm_calls": 11,
+      "sims": 37,
+      "cost_usd": 4.8776
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 11,
+        "sims": 37,
+        "cost_usd": 4.877582
+      },
+      "elapsed_s": 3042.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_data_reg",
+      "module": "sdspi",
+      "event": "When a value is written to `SDSPI_CMD_ADDRESS`, `r_data_reg` is loaded with `i_wb_data` directly, instead of `i_wb_data | 8'h60`.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  }
+]

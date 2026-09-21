@@ -1,0 +1,9 @@
+{
+  "id": "H08_hit1tag_x_skipwb",
+  "class": "composed",
+  "parts": [
+    "M08_hit1_compares_way0_tag",
+    "M14_miss_skips_writeback"
+  ],
+  "desc": "Way-1 hit comparator reads way 0's tag; false hits and false misses. + Dirty miss goes straight to refill; the dirty victim line is never written back."
+}

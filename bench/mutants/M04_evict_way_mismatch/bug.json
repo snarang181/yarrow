@@ -1,0 +1,5 @@
+{
+  "id": "M04_evict_way_mismatch",
+  "class": "replacement",
+  "desc": "Victim bookkeeping latches the opposite way; writeback/refill target the wrong way."
+}

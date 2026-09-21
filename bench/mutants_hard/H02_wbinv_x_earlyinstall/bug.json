@@ -1,0 +1,9 @@
+{
+  "id": "H02_wbinv_x_earlyinstall",
+  "class": "composed",
+  "parts": [
+    "M02_wb_cond_inverted",
+    "M16_refill_installs_early"
+  ],
+  "desc": "Writeback condition inverted: dirty victims are dropped, clean victims written back. + Line is installed after three of four refill beats; the last word is stale."
+}

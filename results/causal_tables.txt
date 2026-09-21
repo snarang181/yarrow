@@ -1,0 +1,101 @@
+== YARROW-Causal — all tables regenerated 2026-09-23T19:22Z (Gemini/Vertex only) ==
+
+== D3 ladder: tier S (synthetic cache_ctrl mutants, n=2) ==
+model                  tier        n  repair  exact  block   mod  miss exact|fixed  dissoc
+------------------------------------------------------------------------------------------
+gemini-2.5-flash       hard       30     77%    37%    23%   33%    7%         48%     29
+gemini-2.5-flash       single     58     93%    71%    22%    5%    2%         74%     19
+gemini-2.5-pro         hard       30     93%    63%    10%   17%   10%         64%     29
+gemini-2.5-pro         single     58     97%    81%     5%    5%    9%         82%     14
+gemini-3.1-pro-preview hard       30    100%    80%     7%   13%    0%         80%     20
+gemini-3.1-pro-preview single     58    100%    78%    10%   10%    2%         78%     22
+
+== D3 ladder: tier R (14 field bugs, RTL-Repair fpga-debugging; flash and 3.1-pro n=2, 2.5-pro n=1) ==
+model                  tier        n  repair  exact  block   mod  miss exact|fixed  dissoc
+------------------------------------------------------------------------------------------
+gemini-2.5-flash       real       28     50%    36%    14%   32%   18%         50%      0
+gemini-2.5-pro         real       14     64%    71%     0%   29%    0%         89%    -25
+gemini-3.1-pro-preview real       28    100%    64%    25%   11%    0%         64%     36
+
+== D3 ladder: tier X (24 externally-authored CirFix synthetic bugs; control for experimenter bias) ==
+model                  tier        n  repair  exact  block   mod  miss exact|fixed  dissoc
+------------------------------------------------------------------------------------------
+gemini-2.5-flash       cirfix     48    100%    79%     0%   21%    0%         79%     21
+gemini-3.1-pro-preview cirfix     48    100%   100%     0%    0%    0%        100%      0
+
+NOTES: flash R r2 has 12 of 14 cells (zipcpu-spi-c3/d9 did not run: Vertex
+billing was disabled when the credit ran out); 3.1-pro R is 28/28. exact =
+claimed base name in the D1b first-divergence set; block = same always
+block; module = same module type. R label sets have 1-4 members (S up to 20).
+
+== D5 causal-closure loop ==
+flash, S single (probe harness):
+gemini-2.5-flash       single     58     93%    86%     7%    5%    2%         91%      2   <- tier A
+gemini-2.5-flash       single     58     98%    78%     2%   21%    0%         79%     19   <- tier B
+3.1-pro, R (tier A):
+gemini-3.1-pro-preview real       26    100%    92%     0%    4%    4%         92%      8
+  26 valid cells (2 retry-turn context overflows >1,048,576 tokens, reported as
+  errors): 26 fixed; claim verified 24/26 = 92% among 26 valid evaluations, 86% of
+  all 28 attempts (open loop 64%); first-try 20/26;
+  6 entered the loop, 4 closed (d4 x2, spi-c1 x2 after 1-2 rounds), 2 did not
+  (spi-d9 wall-limited; c4 used both rounds).
+3.1-pro, R (tier B, cycle hint):
+gemini-3.1-pro-preview real       14    100%    93%     0%    7%    0%         93%      7
+flash, R (tier A):
+gemini-2.5-flash       real       27     30%    33%     7%   37%   22%         88%    -58
+  repair 29% vs 54% open loop (the check runs only after a green patch; it grounds
+  fixes, it does not create them); 7 of 8 fixes verified.
+
+== D7 diagnosis feedback in the RED path (oracle localization, arm D; n=1) ==
+gemini-2.5-flash       real       14     50%    86%     0%   14%    0%         86%    -36
+  repair 50% vs 54% open loop (P4 fails); exact|fixed is trivial under D (label shown).
+
+== D8 closed loop: 3 restarts (budget split) + Feedback A; tier R ==
+gemini-2.5-flash       real       28     61%    50%     4%   25%   21%         71%    -10
+gemini-2.5-pro         real       13     69%    62%     0%   15%   23%         78%     -9
+gemini-3.1-pro-preview real       14    100%    86%     0%    7%    7%         86%     14
+  right fix AND right reason per scheduled bug: see report_tiers joint column;
+  flash 43% (open 27%), 2.5-pro 54% of 13 valid (open 57%; 1 context-overflow error row), 3.1-pro 86% (open 64%).
+
+== D9 tight loop: 3 restarts + lint-gated edit/reset + firstdiff self-replay + Feedback A; tier R ==
+gemini-2.5-flash       real       42     69%    62%     0%   21%   17%         90%    -21
+gemini-2.5-pro         real       28     71%    75%     0%   18%    7%         95%    -24
+gemini-3.1-pro-preview real       28    100%    86%     7%    7%    0%         86%     14
+  right fix AND right reason per scheduled bug: report_tiers 'fix&reason' column (arm T).
+
+== Ablation: clean-ladder flash rerun WITH probe.sh (not pooled above) ==
+gemini-2.5-flash       single     58     95%    67%    24%    5%    3%         69%     26   <- single, with probe (no-probe: 93/74)
+gemini-2.5-flash       hard       30     80%    47%    30%   20%    3%         54%     26   <- hard, with probe (no-probe: 77/48)
+
+== Per-repeat spread, state-exact secondary, pre-registered predictions ==
+model      tier    arm   reps    n  repair exact|fix fix&reason state|fix  per-repeat exact|fixed
+gemini-2.5-pro cirfix  open     2   48    100%       96%        96%       88%  96 96
+gemini-2.5-pro hard    open     2   30     93%       64%        60%       29%  69 60
+gemini-2.5-pro real    open     1   14     64%       89%        57%       67%  89
+gemini-2.5-pro single  open     2   58     97%       82%        79%       66%  79 86
+gemini-3.1-pro cirfix  open     2   48    100%      100%       100%      100%  100 100
+gemini-3.1-pro hard    open     2   30    100%       80%        80%       50%  87 73
+gemini-3.1-pro real    A        2   26    100%       92%        92%       92%  92 92
+gemini-3.1-pro real    B        1   14    100%       93%        93%       93%  93
+gemini-3.1-pro real    open     2   28    100%       64%        64%       64%  64 64
+gemini-3.1-pro single  open     2   58    100%       78%        78%       64%  76 79
+gemini-2.5-flash cirfix  open     2   48    100%       79%        79%       79%  83 75
+gemini-2.5-flash hard    open     2   30     77%       48%        37%       30%  54 40
+gemini-2.5-flash real    A        2   28     29%       88%        25%       50%  67 100
+gemini-2.5-flash real    D        1   14     50%       86%        43%       29%  86
+gemini-2.5-flash real    open     2   28     50%       50%        25%       36%  50 50
+gemini-2.5-flash single  A        2   58     93%       91%        84%       80%  93 89
+gemini-2.5-flash single  B        2   58     98%       79%        78%       65%  86 71
+gemini-2.5-flash single  open     2   58     93%       74%        69%       63%  70 78
+flash+probe hard    open     2   30     80%       54%        43%       21%  57 50
+flash+probe single  open     2   58     95%       69%        66%       56%  73 66
+
+PRE-REGISTERED PREDICTIONS (docs D6):
+  gemini-2.5-flash: repair S 93% -> R 50% (-43 pp)  P1 HOLDS (needs >= 15 pp drop; pre-registered for 31pro)
+  gemini-2.5-flash: exact|fixed S 74% -> R 50% (-24 pp)  P2 FAILS (R not lower than S)
+  gemini-2.5-flash: D5-A repair uplift S +0 pp, R -21 pp  P3 FAILS
+  gemini-2.5-pro: repair S 97% -> R 64% (-32 pp)  P1 HOLDS (needs >= 15 pp drop; pre-registered for 31pro)
+  gemini-2.5-pro: exact|fixed S 82% -> R 89% (+7 pp)  P2 HOLDS (R not lower than S)
+  gemini-3.1-pro: repair S 100% -> R 100% (-0 pp)  P1 FAILS (needs >= 15 pp drop; pre-registered for 31pro)
+  gemini-3.1-pro: exact|fixed S 78% -> R 64% (-13 pp)  P2 FAILS (R not lower than S)
+  gemini-3.1-pro: D5-A on R: repair 100% -> 100% (+0 pp); no S-tier D5-A cell for this model to compare

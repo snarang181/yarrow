@@ -1,0 +1,27 @@
+{
+  "mutant": "axis-frame-len-d13",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.axis_frame_len.frame_len_reg",
+    "cycle": 5,
+    "module": "axis_frame_len",
+    "instance": "TOP.axis_frame_len",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.axis_frame_len.frame_len_next",
+      "module": "axis_frame_len"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 4,
+  "trace_rows": 6,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

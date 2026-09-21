@@ -1,0 +1,39 @@
+{
+  "mutant": "H04_wbready_x_rfbeat",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.data_arr[1][0][0]",
+    "cycle": 19,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.data_arr[1][0][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.data_arr[1][0][1]",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M11_wb_ignores_ready",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 343,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M27_refill_indexed_by_beat",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.data_arr[1][0][0]",
+        "cycle": 19,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

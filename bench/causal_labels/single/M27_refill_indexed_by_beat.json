@@ -1,0 +1,22 @@
+{
+  "mutant": "M27_refill_indexed_by_beat",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.data_arr[1][0][0]",
+    "cycle": 19,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.data_arr[1][0][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.data_arr[1][0][1]",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

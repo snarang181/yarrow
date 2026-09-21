@@ -1,0 +1,9 @@
+{
+  "id": "H09_rstvalid_x_word0",
+  "class": "composed",
+  "parts": [
+    "M17_reset_valid_high",
+    "M26_resp_word0"
+  ],
+  "desc": "Reset drives valid bits high; the cache hits on garbage lines after reset. + Read response always returns word 0 of the line regardless of offset."
+}

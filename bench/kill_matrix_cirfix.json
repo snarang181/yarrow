@@ -1,0 +1,851 @@
+{
+  "decoder_3_to_8-buggy_num": {
+    "name": "decoder_3_to_8-buggy_num",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=27"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: Y0 got 1 expected 0"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: Y0 got 1 expected 0"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: Y0 got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "build_log": ""
+  },
+  "decoder_3_to_8-buggy_var": {
+    "name": "decoder_3_to_8-buggy_var",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=27"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: Y0 got 1 expected 0"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: Y0 got 1 expected 0"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: Y0 got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "build_log": ""
+  },
+  "decoder_3_to_8-super_buggy": {
+    "name": "decoder_3_to_8-super_buggy",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=27"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y6 got 0 expected 1"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y6 got 0 expected 1"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y6 got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "build_log": ""
+  },
+  "decoder_3_to_8-wadden_buggy1": {
+    "name": "decoder_3_to_8-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=27"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "build_log": ""
+  },
+  "decoder_3_to_8-wadden_buggy2": {
+    "name": "decoder_3_to_8-wadden_buggy2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=27"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      },
+      {
+        "name": "orig_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      },
+      {
+        "name": "complete_min_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @0: Y7 got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "build_log": ""
+  },
+  "first_counter_overflow-buggy_all": {
+    "name": "first_counter_overflow-buggy_all",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @3: overflow_out got 1 expected 0"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @3: overflow_out got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "build_log": ""
+  },
+  "first_counter_overflow-buggy_counter": {
+    "name": "first_counter_overflow-buggy_counter",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: counter_out got 2 expected 1"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: counter_out got 2 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "build_log": ""
+  },
+  "first_counter_overflow-buggy_overflow": {
+    "name": "first_counter_overflow-buggy_overflow",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @20: overflow_out got 0 expected 1"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @20: overflow_out got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "build_log": ""
+  },
+  "first_counter_overflow-wadden_buggy1": {
+    "name": "first_counter_overflow-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: counter_out got 2 expected 1"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: counter_out got 2 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "build_log": ""
+  },
+  "first_counter_overflow-wadden_buggy2": {
+    "name": "first_counter_overflow-wadden_buggy2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=26"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @20: overflow_out got 0 expected 1"
+      },
+      {
+        "name": "en_test_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @20: overflow_out got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "build_log": ""
+  },
+  "flip_flop-wadden_buggy1": {
+    "name": "flip_flop-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @3: q got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "flip_flop-wadden_buggy2": {
+    "name": "flip_flop-wadden_buggy2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=11"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: q got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "fsm_full-buggy_num": {
+    "name": "fsm_full-buggy_num",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=38"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @11: gnt_0 got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "fsm_full-buggy_var": {
+    "name": "fsm_full-buggy_var",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=38"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @15: gnt_0 got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "fsm_full-ssscrazy_buggy2": {
+    "name": "fsm_full-ssscrazy_buggy2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=38"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @9: gnt_0 got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "fsm_full-super_buggy": {
+    "name": "fsm_full-super_buggy",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=38"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2: gnt_3 got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "fsm_full-wadden_buggy1": {
+    "name": "fsm_full-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=38"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @32: gnt_3 got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "lshift_reg-buggy_num": {
+    "name": "lshift_reg-buggy_num",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=28"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @9: op got 0 expected 2"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "lshift_reg-buggy_var": {
+    "name": "lshift_reg-buggy_var",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=28"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @3: op got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "lshift_reg-wadden_buggy1": {
+    "name": "lshift_reg-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=28"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @9: op got 255 expected 2"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "lshift_reg-wadden_buggy2": {
+    "name": "lshift_reg-wadden_buggy2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=28"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @8: op got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "mux_4_1-buggy_var": {
+    "name": "mux_4_1-buggy_var",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=150"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @10: out got 1 expected 2"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "mux_4_1-kgoliya_buggy1": {
+    "name": "mux_4_1-kgoliya_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=150"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @10: out got 0 expected 2"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  },
+  "mux_4_1-wadden_buggy1": {
+    "name": "mux_4_1-wadden_buggy1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "orig_tb",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=150"
+      }
+    ],
+    "results": [
+      {
+        "name": "orig_tb",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @10: out got 1 expected 2"
+      }
+    ],
+    "killed_by": [
+      "orig_tb"
+    ],
+    "build_log": ""
+  }
+}

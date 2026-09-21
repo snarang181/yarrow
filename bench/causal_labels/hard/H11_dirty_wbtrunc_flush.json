@@ -1,0 +1,43 @@
+{
+  "mutant": "H11_dirty_wbtrunc_flush",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.dirty_arr[2][0]",
+    "cycle": 56,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.dirty_arr[2][0]",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M01_whit_no_dirty",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.dirty_arr[2][0]",
+        "cycle": 56,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M15_wb_truncated",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 349,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M21_flush_done_after_set0",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.flush_done",
+        "cycle": 35903,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

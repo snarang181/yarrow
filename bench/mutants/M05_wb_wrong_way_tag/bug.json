@@ -1,0 +1,5 @@
+{
+  "id": "M05_wb_wrong_way_tag",
+  "class": "replacement",
+  "desc": "Writeback address is formed from the non-victim way's tag."
+}

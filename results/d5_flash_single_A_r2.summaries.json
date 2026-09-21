@@ -1,0 +1,1306 @@
+[
+  {
+    "mutant": "M01_whit_no_dirty",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 29.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0085
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.008539
+      },
+      "elapsed_s": 29.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "dirty_arr",
+      "module": "cache_ctrl",
+      "event": "A write request hit a valid cache line, but the logic responsible for marking the line dirty assigned its current value to itself instead of asserting `1'b1`.",
+      "mechanism": "dirty"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M02_wb_cond_inverted",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 71.1,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 20,
+      "cost_usd": 0.0508
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 20,
+        "cost_usd": 0.050789999999999995
+      },
+      "elapsed_s": 71.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "During a cache miss with victim eviction, the determination of the next state (S_WB or S_RF) is inverted based on the victim line's dirty and valid status.",
+      "mechanism": "Inversion"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M03_flush_checks_way0_dirty",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 46.2,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 23,
+      "cost_usd": 0.0083
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 23,
+        "cost_usd": 0.008301
+      },
+      "elapsed_s": 46.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "cache_mem_dirty",
+      "module": "cache_ctrl",
+      "event": "The dirty bit for Way 0 of a cache line was not cleared after its corresponding data was successfully written back to memory during a cache flush operation.",
+      "mechanism": "Incorrect_State_Update"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M04_evict_way_mismatch",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 31.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0102
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.010232
+      },
+      "elapsed_s": 31.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "wb_way",
+      "module": "cache_ctrl",
+      "event": "wb_way` is assigned `~victim_way` when a cache miss occurs and a victim line is selected in the `S_CMP` state.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M05_wb_wrong_way_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 27.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 0.0097
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 20,
+        "cost_usd": 0.009744
+      },
+      "elapsed_s": 26.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "wb_tag",
+      "module": "cache_ctrl",
+      "event": "During a cache miss, when wb_tag is assigned the tag of the non-victim way (`tag_arr[r_idx][~victim_way]`) instead of the victim way (`tag_arr[r_idx][victim_way]`).",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M06_tag_slice_off_by_one",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 22.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0073
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.007253
+      },
+      "elapsed_s": 22.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "r_tag",
+      "module": "cache_ctrl",
+      "event": "When a CPU request arrives and its address is decoded, specifically when the tag portion of the address is extracted.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M07_index_slice_off_by_one",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 55.1,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 16,
+      "cost_usd": 0.0114
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 16,
+        "cost_usd": 0.011431
+      },
+      "elapsed_s": 55.0,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "r_idx",
+      "module": "cache_ctrl",
+      "event": "The index is incorrectly sliced from the `r_addr` signal, leading to an incorrect `r_idx` value upon a CPU request.",
+      "mechanism": "slicing_error"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 12,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M08_hit1_compares_way0_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 293.0,
+    "usage": {
+      "llm_calls": 5,
+      "sims": 41,
+      "cost_usd": 0.1316
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 5,
+        "sims": 41,
+        "cost_usd": 0.13156099999999998
+      },
+      "elapsed_s": 292.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "tag_match_way1",
+      "module": "cache_ctrl",
+      "event": "tag_match_way1 is incorrectly asserted when the current request's tag matches the stored tag in way 0 at the requested index, but does not match the stored tag in way 1 at the same index.",
+      "mechanism": "incorrect_comparison"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 31,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M09_hit_way_inverted",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 27.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0066
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.006562
+      },
+      "elapsed_s": 26.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "hit_way",
+      "module": "cache_ctrl",
+      "event": "When a cache hit occurs, the `hit_way` signal is assigned `hit0`, which means if way 0 hits, `hit_way` is 1, and if way 1 hits (and way 0 doesn't), `hit_way` is 0, inverting the intended way selection.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "M10_refill_addr_uses_victim_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 89.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 22,
+      "cost_usd": 0.0474
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 22,
+        "cost_usd": 0.0474
+      },
+      "elapsed_s": 89.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "mem_req_addr",
+      "module": "cache_ctrl",
+      "event": "When the cache controller transitions to the `S_RF` state after a cache miss and attempts to refill a cache line, it constructs `mem_req_addr` using `wb_tag` (victim's tag) instead of `r_tag` (requested tag).",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M11_wb_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 80.9,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 20,
+      "cost_usd": 0.0411
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 20,
+        "cost_usd": 0.0411
+      },
+      "elapsed_s": 80.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "beat",
+      "module": "cache_ctrl",
+      "event": "The 'beat' counter increments in the S_WB or S_FLUSH_WB state when 'mem_req_ready' is low.",
+      "mechanism": "Premature_Increment"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M12_rf_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 52.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0572
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.057183
+      },
+      "elapsed_s": 52.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "beat",
+      "module": "cache_ctrl",
+      "event": "In S_RF state, mem_req_valid is high but mem_req_ready is low, yet the beat counter increments.",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M13_flushwb_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 89.0,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 22,
+      "cost_usd": 0.0213
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 22,
+        "cost_usd": 0.021252
+      },
+      "elapsed_s": 88.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "c_dirty_q",
+      "module": "cache_ctrl.sv",
+      "event": "During a flush write-back, the dirty bit for a cache line is cleared while `mem_req_valid` is asserted, but before `mem_req_ready` goes high, indicating the write to main memory has not completed.",
+      "mechanism": "DATA_INCONSISTENCY"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M14_miss_skips_writeback",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 105.8,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 20,
+      "cost_usd": 0.038
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 20,
+        "cost_usd": 0.037954999999999996
+      },
+      "elapsed_s": 105.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "When in S_CMP state, upon detecting a cache miss with a dirty victim line, the FSM transitions to an incorrect state instead of S_WB.",
+      "mechanism": "FSM_TRANSITION"
+    },
+    "cause_verified": true,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M15_wb_truncated",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 819.4,
+    "usage": {
+      "llm_calls": 4,
+      "sims": 109,
+      "cost_usd": 0.5377
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 4,
+        "sims": 109,
+        "cost_usd": 0.537744
+      },
+      "elapsed_s": 819.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "mem_resp_rdata` is received during the `S_RF` state for a cache miss, but the corresponding word in `data_arr` does not update from its default `0` value.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "M16_refill_installs_early",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 66.3,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 24,
+      "cost_usd": 0.0126
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 24,
+        "cost_usd": 0.012596
+      },
+      "elapsed_s": 66.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "'state' transitions from S_RF to S_CMP when 'rf_got' equals WORDS-1, instead of WORDS, during a refill operation.",
+      "mechanism": "premature_state_transition"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "M17_reset_valid_high",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 32.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0114
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.01141
+      },
+      "elapsed_s": 32.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "System reset, when valid_arr is assigned 1'b1 instead of 1'b0.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M18_reset_flush_done_high",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 1057.1,
+    "usage": {
+      "llm_calls": 6,
+      "sims": 108,
+      "cost_usd": 1.3449
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 6,
+        "sims": 108,
+        "cost_usd": 1.344929
+      },
+      "elapsed_s": 1056.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "After a cache miss leads to a refill from memory (S_RF state), the `valid_arr` bit for the refilled line is not correctly set to '1' when all words have been received.",
+      "mechanism": "valid_arr_update"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "M19_resp_loops_to_cmp",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 17.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0055
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.005459
+      },
+      "elapsed_s": 17.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "After a hit and response in S_RESP, the FSM transitions to S_CMP instead of S_IDLE.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M20_flush_way_stuck",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 59.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0551
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.055101
+      },
+      "elapsed_s": 59.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "fl_way",
+      "module": "cache_ctrl",
+      "event": "When `state` is `S_FLUSH`, and the currently scanned `fl_way` is `1'b0` for a non-dirty or invalid cache line.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 17,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M21_flush_done_after_set0",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 58.4,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 23,
+      "cost_usd": 0.0152
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 23,
+        "cost_usd": 0.015224000000000001
+      },
+      "elapsed_s": 58.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "flush_done",
+      "module": "cache_ctrl",
+      "event": "flush_done is asserted when fl_idx is 0 and fl_way is 1 during the S_FLUSH state, rather than waiting for fl_idx to reach SETS-1.",
+      "mechanism": "Incorrect_condition"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 13,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M22_install_no_valid",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 20.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0057
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.005711
+      },
+      "elapsed_s": 20.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "A cache line is refilled from memory, but the `valid_arr` bit for the refilled line is not set to 1.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M23_install_no_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 199.9,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 56,
+      "cost_usd": 0.0286
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 56,
+        "cost_usd": 0.028627
+      },
+      "elapsed_s": 199.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "tag_arr",
+      "module": "cache_ctrl",
+      "event": "After a cache line refill operation completes in the S_RF state, the tag for the refilled line is not updated with the correct `r_tag`.",
+      "mechanism": "tag_match"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M24_wstrb_ignored",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 24.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0079
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.007894
+      },
+      "elapsed_s": 24.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "A CPU write request (req_we=1) to a cached line where req_wstrb specifies a partial-word write, but the full r_wdata is written.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M25_wdata_lane0_everywhere",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 22.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.008
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.008034
+      },
+      "elapsed_s": 22.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "A CPU write request hits in the cache and the byte write strobe (`r_wstrb`) causes an update to a byte lane in `data_arr` using the incorrect `r_wdata[7:0]` instead of `r_wdata[8*b +: 8]`.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M26_resp_word0",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 25.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0107
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.010701
+      },
+      "elapsed_s": 25.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "r_resp_data",
+      "module": "cache_ctrl",
+      "event": "During a CPU read request that results in a cache hit, the `r_resp_data` is assigned `data_arr[r_idx][hit_way][2'd0]` instead of `data_arr[r_idx][hit_way][r_off]`.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M27_refill_indexed_by_beat",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 29.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0114
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.011404
+      },
+      "elapsed_s": 29.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "A memory refill operation where `mem_req_ready` is deasserted while `mem_req_valid` is asserted, causing the `beat` counter to stall while `mem_resp_valid` continues to advance `rf_got`.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M28_wb_addr_uses_req_index",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 38.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0136
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.013554
+      },
+      "elapsed_s": 38.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "mem_req_addr",
+      "module": "cache_ctrl",
+      "event": "During a write-back operation (S_WB or S_FLUSH_WB), the memory request address was formed with `r_idx` instead of `wb_idx`.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M29_hit_requires_both_ways",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 23.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.008
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 14,
+        "sims": 110
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.007964
+      },
+      "elapsed_s": 23.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "hit",
+      "module": "cache_ctrl",
+      "event": "When a CPU request arrives and its address's tag matches only one of the two ways in the cache set.",
+      "mechanism": "tag_match"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  }
+]

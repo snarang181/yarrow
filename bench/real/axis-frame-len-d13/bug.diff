@@ -1,0 +1,21 @@
+--- golden/axis_frame_len.v
++++ buggy/axis_frame_len.v
+@@ -78,10 +78,6 @@
+     frame_len_valid_next = 1'b0;
+     frame_next = frame_reg;
+ 
+-    if (frame_len_valid_reg) begin
+-        frame_len_next = 0;
+-    end
+-
+     if (monitor_axis_tready && monitor_axis_tvalid) begin
+         // valid transfer cycle
+ 
+@@ -91,6 +87,7 @@
+             frame_next = 1'b0;
+         end else if (!frame_reg) begin
+             // first word after end of frame
++            frame_len_next = 0;
+             frame_next = 1'b1;
+         end
+ 

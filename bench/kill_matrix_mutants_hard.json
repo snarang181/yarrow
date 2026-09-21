@@ -1,0 +1,1142 @@
+{
+  "golden": {
+    "name": "golden",
+    "compiled": true,
+    "killed_by": [],
+    "results": [
+      {
+        "name": "default",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.02,
+        "output_tail": "PASS: seed=101 ops=2000 cycles=35991"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=102 ops=2000 cycles=9949"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=103 ops=2000 cycles=22226"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=104 ops=2000 cycles=34065"
+      },
+      {
+        "name": "write_storm",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=105 ops=500 cycles=2756"
+      },
+      {
+        "name": "read_only",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=106 ops=500 cycles=11121"
+      },
+      {
+        "name": "long_soak",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.02,
+        "output_tail": "PASS: seed=107 ops=4000 cycles=57966"
+      },
+      {
+        "name": "smoke",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=108 ops=100 cycles=898"
+      }
+    ]
+  },
+  "H01_dirty_x_flushrange": {
+    "name": "H01_dirty_x_flushrange",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.55,
+        "output_tail": "FAIL @748: read addr=01fc expected=98e0a886 got=982ec486 (op 40)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @9684: post-flush mem[0000]=a241d139 expected b90f119f"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @705: read addr=0244 expected=c398f7d8 got=dd9887d8 (op 64)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1143: read addr=0028 expected=64bc3705 got=1a5a37dd (op 59)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2628: post-flush mem[0000]=8ae36630 expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=106 ops=500 cycles=11107"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1171: read addr=0160 expected=ca9cc1f9 got=c99ce67d (op 87)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @783: post-flush mem[0000]=d127d7ed expected 4eadd749"
+      }
+    ]
+  },
+  "H02_wbinv_x_earlyinstall": {
+    "name": "H02_wbinv_x_earlyinstall",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.8,
+        "output_tail": "FAIL @34: read addr=01a0 expected=3ea2ccea got=e345ea0a (op 1)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @229: read addr=0010 expected=4162328e got=a421328e (op 8)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @11: read addr=00bc expected=dde96faa got=00000000 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @37: read addr=011c expected=69d39efb got=00000000 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2675: post-flush mem[004c]=a2720070 expected a2725370"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @42: read addr=0154 expected=a30a1686 got=4dbf90b1 (op 1)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @229: read addr=00cc expected=ad98e81a got=00000000 (op 14)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @40: read addr=00f4 expected=464e40f6 got=c5d898c1 (op 1)"
+      }
+    ]
+  },
+  "H03_wbtag_x_hitway": {
+    "name": "H03_wbtag_x_hitway",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.29,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=00000000 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=00000000 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=00000000 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=00000000 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @8141: post-flush mem[0000]=8ae36630 expected 22c77324"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=00000000 (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=00000000 (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=00000000 (op 3)"
+      }
+    ]
+  },
+  "H04_wbready_x_rfbeat": {
+    "name": "H04_wbready_x_rfbeat",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.61,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=00000000 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=00000000 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=3941e7eb (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=00000000 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2756: post-flush mem[004c]=a272e770 expected a2725370"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=00000000 (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=24655683 (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=00000000 (op 3)"
+      }
+    ]
+  },
+  "H05_flushdirty_x_wbtrunc": {
+    "name": "H05_flushdirty_x_wbtrunc",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.27,
+        "output_tail": "FAIL @1993: read addr=01bc expected=7f8f750d got=7f8fe30d (op 108)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @9814: post-flush mem[0000]=a241d139 expected b90f119f"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2234: read addr=015c expected=aeb757ff got=ae8d5799 (op 209)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2557: read addr=012c expected=2d85dd18 got=2d8add18 (op 129)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2704: post-flush mem[0000]=8ae36630 expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: seed=106 ops=500 cycles=11121"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1016: read addr=00fc expected=8d19ea3e got=8d19413e (op 71)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @839: post-flush mem[0000]=d127d7ed expected 4eadd749"
+      }
+    ]
+  },
+  "H06_tagslice_x_wstrb": {
+    "name": "H06_tagslice_x_wstrb",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.26,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=3480ee85 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=b826881e (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=1f1b4d02 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=2fa6d7c9 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2756: post-flush mem[0000]=88433e9e expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=4e8b607b (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=d1314bc3 (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=1792f60a (op 3)"
+      }
+    ]
+  },
+  "H07_idxslice_x_flushbp": {
+    "name": "H07_idxslice_x_flushbp",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.3,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=00230e2b (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=5dcba355 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=e24d2d57 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=58b222c2 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2524: post-flush mem[0004]=de81a8f1 expected 1e34d4c7"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=ff92f9cd (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=25d2482c (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=c076b967 (op 3)"
+      }
+    ]
+  },
+  "H08_hit1tag_x_skipwb": {
+    "name": "H08_hit1tag_x_skipwb",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.46,
+        "output_tail": "FAIL: TIMEOUT after 900000 cycles (ops_done=4/2000, phase=0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.1,
+        "output_tail": "FAIL: TIMEOUT after 900000 cycles (ops_done=3/2000, phase=0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.07,
+        "output_tail": "FAIL: TIMEOUT after 900000 cycles (ops_done=4/2000, phase=0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.07,
+        "output_tail": "FAIL: TIMEOUT after 900000 cycles (ops_done=2/2000, phase=0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.03,
+        "output_tail": "FAIL: TIMEOUT after 300000 cycles (ops_done=9/500, phase=0)"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.02,
+        "output_tail": "FAIL: TIMEOUT after 300000 cycles (ops_done=4/500, phase=0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.12,
+        "output_tail": "FAIL: TIMEOUT after 1700000 cycles (ops_done=2/4000, phase=0)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 2,
+        "wall_s": 0.02,
+        "output_tail": "FAIL: TIMEOUT after 140000 cycles (ops_done=2/100, phase=0)"
+      }
+    ]
+  },
+  "H09_rstvalid_x_word0": {
+    "name": "H09_rstvalid_x_word0",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.28,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=ad75a532 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=c3857267 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=5198ef19 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=15c2bd43 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2605: post-flush mem[000c]=9c00c48e expected 9ce0c48e"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=80f22d7f (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @37: read addr=017c expected=84d07382 got=e6b8b91c (op 2)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @88: read addr=006c expected=0896a198 got=00000000 (op 5)"
+      }
+    ]
+  },
+  "H10_rfaddr_x_rstflush": {
+    "name": "H10_rfaddr_x_rstflush",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.52,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      }
+    ]
+  },
+  "H11_dirty_wbtrunc_flush": {
+    "name": "H11_dirty_wbtrunc_flush",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.36,
+        "output_tail": "FAIL @748: read addr=01fc expected=98e0a886 got=982ec486 (op 40)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @9684: post-flush mem[0000]=a241d139 expected b90f119f"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @705: read addr=0244 expected=c398f7d8 got=dd9887d8 (op 64)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1143: read addr=0028 expected=64bc3705 got=1a5a37dd (op 59)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2628: post-flush mem[0000]=8ae36630 expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.01,
+        "output_tail": "PASS: seed=106 ops=500 cycles=11107"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1171: read addr=0160 expected=ca9cc1f9 got=c99ce67d (op 87)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @783: post-flush mem[0000]=d127d7ed expected 4eadd749"
+      }
+    ]
+  },
+  "H12_wbinv_hitway_rfbeat": {
+    "name": "H12_wbinv_hitway_rfbeat",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.35,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=00000000 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=00000000 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=00000000 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=00000000 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @9843: post-flush mem[0000]=05e0d9e7 expected 59c51824"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=00000000 (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=00000000 (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @81: read addr=00f4 expected=464e40f6 got=00000000 (op 3)"
+      }
+    ]
+  },
+  "H13_tag_flushbp_wstrb": {
+    "name": "H13_tag_flushbp_wstrb",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.28,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=3480ee85 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=b826881e (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=1f1b4d02 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=2fa6d7c9 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @2722: post-flush mem[0000]=88433e9e expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=4e8b607b (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=d1314bc3 (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=1792f60a (op 3)"
+      }
+    ]
+  },
+  "H14_wbtag_early_rstflush": {
+    "name": "H14_wbtag_early_rstflush",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.37,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: spurious flush_done"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @1: spurious flush_done"
+      }
+    ]
+  },
+  "H15_flushd_wbready_word0": {
+    "name": "H15_flushd_wbready_word0",
+    "compiled": true,
+    "killed_by": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "results": [
+      {
+        "name": "default",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.34,
+        "output_tail": "FAIL @26: read addr=0198 expected=79960545 got=ad75a532 (op 0)"
+      },
+      {
+        "name": "evict_bp_heavy",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @42: read addr=00e8 expected=054b9f3d got=c3857267 (op 0)"
+      },
+      {
+        "name": "read_fastmem",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @13: read addr=00bc expected=dde96faa got=5198ef19 (op 0)"
+      },
+      {
+        "name": "mixed_midlat",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @46: read addr=011c expected=69d39efb got=15c2bd43 (op 0)"
+      },
+      {
+        "name": "write_storm",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @2704: post-flush mem[0000]=8ae36630 expected 58743e90"
+      },
+      {
+        "name": "read_only",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @31: read addr=0174 expected=1c8fc1f7 got=80f22d7f (op 0)"
+      },
+      {
+        "name": "long_soak",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @35: read addr=017c expected=84d07382 got=e6b8b91c (op 1)"
+      },
+      {
+        "name": "smoke",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.01,
+        "output_tail": "FAIL @110: read addr=0068 expected=fd4de609 got=9fa2b92b (op 3)"
+      }
+    ]
+  }
+}

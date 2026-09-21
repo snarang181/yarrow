@@ -1,0 +1,9 @@
+{
+  "id": "H05_flushdirty_x_wbtrunc",
+  "class": "composed",
+  "parts": [
+    "M03_flush_checks_way0_dirty",
+    "M15_wb_truncated"
+  ],
+  "desc": "Flush scan tests way 0's dirty bit for both ways; dirty way-1 lines can be skipped. + Writeback terminates one beat early; the last word of the line never reaches memory."
+}

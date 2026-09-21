@@ -1,0 +1,683 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 1061.9,
+    "usage": {
+      "llm_calls": 6,
+      "sims": 36,
+      "cost_usd": 1.9551
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 2,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 30,
+          "cost_usd": 1.7320280000000001
+        },
+        {
+          "llm_calls": 1,
+          "sims": 6,
+          "cost_usd": 0.223132
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "xlnxdemo.axi_awready",
+      "module": "xlnxdemo",
+      "event": "At table row 5, the condition `~axi_awready && S_AXI_AWVALID && S_AXI_WVALID` was true, leading to `axi_awready` being asserted, while a write response was pending (`axi_bvalid` was high).",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 420.5,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 22,
+      "cost_usd": 0.2569
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 3,
+          "sims": 22,
+          "cost_usd": 0.25689300000000004
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "xlnxdemo.axi_arready",
+      "module": "xlnxdemo",
+      "event": "S_AXI_ARVALID is asserted while axi_rvalid is high and S_AXI_RREADY is high, but axi_arready fails to assert because the condition `~axi_rvalid` evaluates to false.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 51.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.0133
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 4,
+          "cost_usd": 0.013267
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "xlnxstream_2018_3.axis_tlast_delay",
+      "module": "xlnxstream_2018_3",
+      "event": "At row 42, M_AXIS_TREADY is low, stalling the channel, but axis_tlast_delay was updated from 0 to 1 in the original design.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 3408.7,
+    "usage": {
+      "llm_calls": 14,
+      "sims": 123,
+      "cost_usd": 5.073
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 33,
+          "cost_usd": 1.788334
+        },
+        {
+          "llm_calls": 5,
+          "sims": 63,
+          "cost_usd": 2.224301
+        },
+        {
+          "llm_calls": 4,
+          "sims": 27,
+          "cost_usd": 1.0604149999999999
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "Unknown",
+      "module": "Unknown",
+      "event": "Unknown",
+      "mechanism": "Unknown"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 2556.4,
+    "usage": {
+      "llm_calls": 13,
+      "sims": 110,
+      "cost_usd": 3.605
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 34,
+          "cost_usd": 1.743461
+        },
+        {
+          "llm_calls": 4,
+          "sims": 50,
+          "cost_usd": 1.340816
+        },
+        {
+          "llm_calls": 4,
+          "sims": 26,
+          "cost_usd": 0.5207409999999999
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "rd_ptr_gray_sync_wclk",
+      "module": "axis_async_fifo",
+      "event": "The `rd_ptr_gray_sync_wclk` signal, which is the read pointer synchronized to the write clock domain, took on an incorrect value due to a synchronization error, leading to a miscalculation of the FIFO's full status.",
+      "mechanism": "Synchronization"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "failed",
+    "wall_s": 2917.8,
+    "usage": {
+      "llm_calls": 14,
+      "sims": 173,
+      "cost_usd": 3.6586
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 60,
+          "cost_usd": 2.113787
+        },
+        {
+          "llm_calls": 6,
+          "sims": 61,
+          "cost_usd": 0.81023
+        },
+        {
+          "llm_calls": 4,
+          "sims": 52,
+          "cost_usd": 0.734578
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "failed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "m_axis_tlast",
+      "module": "axis_fifo",
+      "event": "m_axis_tlast is asserted (becomes 1) at row 4 when the expected value is 0, likely due to an uninitialized internal `tlast` register or an incorrect combinatorial assignment during early cycles.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 747.6,
+    "usage": {
+      "llm_calls": 5,
+      "sims": 46,
+      "cost_usd": 0.7825
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 46,
+          "cost_usd": 0.7825239999999999
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo_wrapper.axis_fifo_inst.write",
+      "module": "axis_fifo",
+      "event": "The FIFO's internal 'write' signal is asserted, enabling a write operation, when the FIFO is logically full and should not accept new data.",
+      "mechanism": "FullLogicError"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 13,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 48.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0167
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 5,
+          "cost_usd": 0.016679
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_frame_fifo.drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "drop_frame` was not initialized during reset and retained an incorrect value after reset deassertion, leading to an erroneous state at row 13.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 1,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 85.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0536
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 5,
+          "cost_usd": 0.053623
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_frame_len.frame_len_next",
+      "module": "axis_frame_len",
+      "event": "At row 4, when monitor_axis_tready, monitor_axis_tvalid, monitor_axis_tlast are asserted, and frame_reg is 0.",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 15,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 243.8,
+    "usage": {
+      "llm_calls": 4,
+      "sims": 14,
+      "cost_usd": 0.0972
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 14,
+          "cost_usd": 0.09715799999999998
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_switch.s_ifaces[0].select_reg",
+      "module": "axis_switch",
+      "event": "The initial value or first update of the selected master port register (select_reg) is incorrect at simulation row 0.",
+      "mechanism": "IncorrectSelectionLogic"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 1382.0,
+    "usage": {
+      "llm_calls": 6,
+      "sims": 54,
+      "cost_usd": 1.3789
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 2,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 35,
+          "cost_usd": 1.0829540000000002
+        },
+        {
+          "llm_calls": 1,
+          "sims": 19,
+          "cost_usd": 0.29589
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "fadd.res_exp_next",
+      "module": "fadd",
+      "event": "The `tmp_mant` value is already normalized (e.g., `0_1_00...0` representing `1.0`) but its most significant bit `tmp_mant[N-E]` is zero, causing it to incorrectly enter the subnormal number normalization path.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2904.5,
+    "usage": {
+      "llm_calls": 14,
+      "sims": 182,
+      "cost_usd": 4.9297
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 67,
+          "cost_usd": 1.5982399999999999
+        },
+        {
+          "llm_calls": 5,
+          "sims": 58,
+          "cost_usd": 1.5363
+        },
+        {
+          "llm_calls": 5,
+          "sims": 57,
+          "cost_usd": 1.795194
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "sdspi.lowlevel.o_mosi",
+      "module": "llsdspi",
+      "event": "At time 0, the `o_mosi` register was not initialized to its expected value, leading to an incorrect `o_debug` output.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2866.7,
+    "usage": {
+      "llm_calls": 13,
+      "sims": 169,
+      "cost_usd": 4.9864
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 62,
+          "cost_usd": 1.574433
+        },
+        {
+          "llm_calls": 5,
+          "sims": 46,
+          "cost_usd": 1.54328
+        },
+        {
+          "llm_calls": 3,
+          "sims": 61,
+          "cost_usd": 1.8687159999999998
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {},
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 3338.4,
+    "usage": {
+      "llm_calls": 9,
+      "sims": 112,
+      "cost_usd": 3.6863
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 3,
+          "sims": 39,
+          "cost_usd": 1.465008
+        },
+        {
+          "llm_calls": 3,
+          "sims": 35,
+          "cost_usd": 0.9858870000000001
+        },
+        {
+          "llm_calls": 3,
+          "sims": 38,
+          "cost_usd": 1.2353839999999998
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_err_token",
+      "module": "sdspi",
+      "event": "r_err_token` (or `fifo_crc_err`) is set by an error condition while a clear command is simultaneously asserted, but the clear condition's assignment has lower priority than the set condition.",
+      "mechanism": "ordering"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  }
+]

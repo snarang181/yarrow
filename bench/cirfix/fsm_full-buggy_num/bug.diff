@@ -1,0 +1,11 @@
+--- golden/fsm_full.v
++++ buggy/fsm_full.v
+@@ -51,7 +51,7 @@
+ 	   end else begin
+   	     next_state = IDLE;
+            end			
+-    GNT0 : if (req_0 == 1'b0) begin
++    GNT0 : if (req_0 == 1'b1) begin
+   	     next_state = IDLE;
+            end else begin
+ 	     next_state = GNT0;

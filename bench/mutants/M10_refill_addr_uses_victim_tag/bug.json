@@ -1,0 +1,5 @@
+{
+  "id": "M10_refill_addr_uses_victim_tag",
+  "class": "addressing",
+  "desc": "Refill fetches from the victim's old address instead of the requested address."
+}

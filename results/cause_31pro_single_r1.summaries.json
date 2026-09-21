@@ -1,0 +1,1306 @@
+[
+  {
+    "mutant": "M01_whit_no_dirty",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 65.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0476
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.047615
+      },
+      "elapsed_s": 65.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "dirty_arr",
+      "module": "cache_ctrl",
+      "event": "During a write hit in S_CMP (hit && r_we)",
+      "mechanism": "dirty"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M02_wb_cond_inverted",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 35.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 0.0341
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 20,
+        "cost_usd": 0.034092
+      },
+      "elapsed_s": 35.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "Cache miss evaluating a valid victim line in S_CMP",
+      "mechanism": "dirty"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M03_flush_checks_way0_dirty",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 67.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0847
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.084718
+      },
+      "elapsed_s": 67.0,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "when a cache flush scans a valid and dirty line in way 1",
+      "mechanism": "dirty"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M04_evict_way_mismatch",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 42.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0634
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.063444
+      },
+      "elapsed_s": 42.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "wb_way",
+      "module": "cache_ctrl",
+      "event": "Cache miss (state S_CMP, hit == 0)",
+      "mechanism": "replacement"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M05_wb_wrong_way_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 57.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 0.0833
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 20,
+        "cost_usd": 0.083278
+      },
+      "elapsed_s": 57.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "wb_tag",
+      "module": "cache_ctrl",
+      "event": "On a cache miss (in S_CMP) that evicts a valid, dirty line",
+      "mechanism": "replacement"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M06_tag_slice_off_by_one",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 65.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0554
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.055445
+      },
+      "elapsed_s": 65.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "tag_arr",
+      "module": "cache_ctrl",
+      "event": "A cache miss refill completion, where the incorrectly sliced tag is written into the tag array.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M07_index_slice_off_by_one",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 61.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0954
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.095412
+      },
+      "elapsed_s": 61.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "wb_idx",
+      "module": "cache_ctrl",
+      "event": "On the first cache miss in S_CMP, when the incorrect r_idx is saved to wb_idx.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M08_hit1_compares_way0_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 227.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 46,
+      "cost_usd": 0.3217
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 46,
+        "cost_usd": 0.321654
+      },
+      "elapsed_s": 227.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "On a lookup for a valid line in way 1, hit evaluations are incorrect (miss instead of hit), causing state to become S_RF instead of S_RESP.",
+      "mechanism": "tag_match"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 3,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M09_hit_way_inverted",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 64.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 26,
+      "cost_usd": 0.081
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 26,
+        "cost_usd": 0.081037
+      },
+      "elapsed_s": 64.0,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "r_resp_data",
+      "module": "cache_ctrl",
+      "event": "On the first cache hit evaluated in the S_CMP state",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M10_refill_addr_uses_victim_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 51.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0848
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.084752
+      },
+      "elapsed_s": 50.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "On a cache miss when refilling the line from memory",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M11_wb_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 55.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 28,
+      "cost_usd": 0.0509
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 28,
+        "cost_usd": 0.050881
+      },
+      "elapsed_s": 54.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "beat",
+      "module": "cache_ctrl",
+      "event": "S_WB state when mem_req_valid is high and mem_req_ready is low",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M12_rf_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 46.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0503
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.050325
+      },
+      "elapsed_s": 45.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "beat",
+      "module": "cache_ctrl",
+      "event": "Memory read request backpressure (mem_req_ready == 0) during refill state (S_RF)",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M13_flushwb_ignores_ready",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 38.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 28,
+      "cost_usd": 0.0647
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 28,
+        "cost_usd": 0.06474
+      },
+      "elapsed_s": 38.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "beat",
+      "module": "cache_ctrl",
+      "event": "Memory backpressure (mem_req_ready=0) is applied while issuing writeback beats in S_FLUSH_WB",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M14_miss_skips_writeback",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 53.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 0.1156
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 20,
+        "cost_usd": 0.115595
+      },
+      "elapsed_s": 52.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "Cache miss where the selected victim line is valid and dirty",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M15_wb_truncated",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 120.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 34,
+      "cost_usd": 0.2989
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 34,
+        "cost_usd": 0.298938
+      },
+      "elapsed_s": 120.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "read_fastmem",
+      "mixed_midlat",
+      "long_soak"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "On the third beat (`beat == 2`) of a dirty line writeback when the memory request is accepted.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M16_refill_installs_early",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 49.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 32,
+      "cost_usd": 0.0679
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 32,
+        "cost_usd": 0.067903
+      },
+      "elapsed_s": 48.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "mem_resp_valid is asserted while rf_got is 2 during the S_RF state",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M17_reset_valid_high",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 119.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 32,
+      "cost_usd": 0.1652
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 32,
+        "cost_usd": 0.165217
+      },
+      "elapsed_s": 118.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "Assertion of reset",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M18_reset_flush_done_high",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 248.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 52,
+      "cost_usd": 0.616
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 52,
+        "cost_usd": 0.61596
+      },
+      "elapsed_s": 248.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "flush_done",
+      "module": "cache_ctrl",
+      "event": "system reset (rst active)",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M19_resp_loops_to_cmp",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 37.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0471
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.04705
+      },
+      "elapsed_s": 37.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "upon finishing a request in S_RESP",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M20_flush_way_stuck",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 31.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0333
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.033293
+      },
+      "elapsed_s": 31.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "fl_way",
+      "module": "cache_ctrl",
+      "event": "FSM is in S_FLUSH state and encounters a clean or invalid line on way 0.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M21_flush_done_after_set0",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 92.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 42,
+      "cost_usd": 0.1359
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 42,
+        "cost_usd": 0.13586
+      },
+      "elapsed_s": 91.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "During a flush, after sweeping set 0, the condition `fl_idx == '0` evaluated to true causing a premature exit to S_IDLE.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "M22_install_no_valid",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 42.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 32,
+      "cost_usd": 0.0455
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 32,
+        "cost_usd": 0.045486
+      },
+      "elapsed_s": 42.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "valid_arr",
+      "module": "cache_ctrl",
+      "event": "Completing memory read responses (rf_got == WORDS-1) during S_RF",
+      "mechanism": "replacement"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M23_install_no_tag",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 58.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 19,
+      "cost_usd": 0.0773
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 19,
+        "cost_usd": 0.077325
+      },
+      "elapsed_s": 58.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "tag_arr",
+      "module": "cache_ctrl",
+      "event": "when a memory read refill completes and the cache line is installed",
+      "mechanism": "replacement"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M24_wstrb_ignored",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 69.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 27,
+      "cost_usd": 0.1163
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 27,
+        "cost_usd": 0.116253
+      },
+      "elapsed_s": 69.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "A CPU write request is processed with one or more unset bits in its write strobe.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M25_wdata_lane0_everywhere",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 46.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 23,
+      "cost_usd": 0.0583
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 23,
+        "cost_usd": 0.058321
+      },
+      "elapsed_s": 46.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "A CPU write request to a cached line (cache hit) with a write strobe active for byte 1, 2, or 3.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M26_resp_word0",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 62.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 31,
+      "cost_usd": 0.1091
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 31,
+        "cost_usd": 0.109102
+      },
+      "elapsed_s": 61.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "r_resp_data",
+      "module": "cache_ctrl",
+      "event": "When registering read response data in state S_CMP for an address with a non-zero word offset",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M27_refill_indexed_by_beat",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 57.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0765
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.076454
+      },
+      "elapsed_s": 57.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "data_arr",
+      "module": "cache_ctrl",
+      "event": "Receiving a memory read response in `S_RF` state when memory latency causes the request counter (`beat`) to differ from the response counter (`rf_got`)",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M28_wb_addr_uses_req_index",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 54.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 30,
+      "cost_usd": 0.0455
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 30,
+        "cost_usd": 0.045524
+      },
+      "elapsed_s": 54.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "mem",
+      "module": "tb_main",
+      "event": "A dirty cache line is written back to memory during a flush operation (state == S_FLUSH_WB)",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "M29_hit_requires_both_ways",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 47.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 0.0467
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 24,
+        "cost_usd": 0.04666
+      },
+      "elapsed_s": 46.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "default",
+      "evict_bp_heavy",
+      "read_fastmem",
+      "mixed_midlat",
+      "write_storm",
+      "read_only",
+      "long_soak",
+      "smoke"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "cache_ctrl",
+      "event": "A lookup occurs for a valid, matching tag in one way (such as the retry cycle after a refill)",
+      "mechanism": "tag_match"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  }
+]

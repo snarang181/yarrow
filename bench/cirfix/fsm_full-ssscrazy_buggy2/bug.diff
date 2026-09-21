@@ -1,0 +1,62 @@
+--- golden/fsm_full.v
++++ buggy/fsm_full.v
+@@ -1,3 +1,9 @@
++// This change is category 1. It represents the errors a student might make
++// during design. Here, I have them accidentally use blocking assignment
++// (instead of nonblocking <= assignment) within the always_ff blocks. This is
++// definitely a mistake a novice who doesn't completely understand design
++// might make.
++
+ module fsm_full(
+ clock , // Clock
+ reset , // Active high reset
+@@ -78,34 +84,34 @@
+ always @ (posedge clock)
+ begin : OUTPUT_LOGIC
+   if (reset) begin
+-    gnt_0 <= #1 1'b0;
+-    gnt_1 <= #1 1'b0;
+-    gnt_2 <= #1 1'b0;
+-    gnt_3 <= #1 1'b0;
+-    state <= #1 IDLE;
++    gnt_0 = #1 1'b0;
++    gnt_1 = #1 1'b0;
++    gnt_2 = #1 1'b0;
++    gnt_3 = #1 1'b0;
++    state = #1 IDLE;
+   end else begin
+-    state <= #1 next_state;
++    state = #1 next_state;
+     case(state)
+ 	IDLE : begin
+-                gnt_0 <= #1 1'b0;
+-                gnt_1 <= #1 1'b0;
+-                gnt_2 <= #1 1'b0;
+-                gnt_3 <= #1 1'b0;
++                gnt_0 = #1 1'b0;
++                gnt_1 = #1 1'b0;
++                gnt_2 = #1 1'b0;
++                gnt_3 = #1 1'b0;
+ 	       end
+   	GNT0 : begin
+-  	         gnt_0 <= #1 1'b1;
++  	         gnt_0 = #1 1'b1;
+   	       end
+         GNT1 : begin
+-                 gnt_1 <= #1 1'b1;
++                 gnt_1 = #1 1'b1;
+                end
+         GNT2 : begin
+-                 gnt_2 <= #1 1'b1;
++                 gnt_2 = #1 1'b1;
+                end
+         GNT3 : begin
+-                 gnt_3 <= #1 1'b1;
++                 gnt_3 = #1 1'b1;
+                end
+      default : begin
+-                 state <= #1 IDLE;
++                 state = #1 IDLE;
+                end
+     endcase
+   end

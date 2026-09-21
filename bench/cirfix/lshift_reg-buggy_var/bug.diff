@@ -1,0 +1,16 @@
+--- golden/lshift_reg.v
++++ buggy/lshift_reg.v
+@@ -16,7 +16,7 @@
+  
+         // If load_en is 1, load the value to op
+         // else keep shifting for every clock
+-        if (load_en) begin
++        if (rstn) begin
+           op <= load_val;
+         end else begin
+             for (i = 0; i < 8; i = i + 1) begin
+@@ -27,4 +27,4 @@
+       end
+     end
+ endmodule
+- + 

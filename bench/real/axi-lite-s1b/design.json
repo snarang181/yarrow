@@ -1,0 +1,25 @@
+{
+  "id": "axi-lite-s1b",
+  "project": "axi-lite-s1",
+  "bug": "s1b",
+  "sources": [
+    "xlnxdemo.v"
+  ],
+  "top": "xlnxdemo",
+  "bug_file": "xlnxdemo.v",
+  "tables": [
+    {
+      "name": "s1b",
+      "file": "tb0.csv",
+      "rows": 10
+    }
+  ],
+  "rtl_lines": 731,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "xlnxdemo_bug_s1b.v"
+  }
+}

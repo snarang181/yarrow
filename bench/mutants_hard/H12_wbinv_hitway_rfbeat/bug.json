@@ -1,0 +1,10 @@
+{
+  "id": "H12_wbinv_hitway_rfbeat",
+  "class": "composed",
+  "parts": [
+    "M02_wb_cond_inverted",
+    "M09_hit_way_inverted",
+    "M27_refill_indexed_by_beat"
+  ],
+  "desc": "Writeback condition inverted: dirty victims are dropped, clean victims written back. + Hit-way select uses the wrong comparator output; data accessed from the wrong way. + Refill data placed by the request counter instead of the response counter; words land in wrong slots when requests outrun responses."
+}

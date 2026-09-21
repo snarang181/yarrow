@@ -1,0 +1,18 @@
+{
+  "mutant": "M05_wb_wrong_way_tag",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.wb_tag",
+    "cycle": 123,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.wb_tag",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

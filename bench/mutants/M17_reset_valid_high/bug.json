@@ -1,0 +1,5 @@
+{
+  "id": "M17_reset_valid_high",
+  "class": "reset",
+  "desc": "Reset drives valid bits high; the cache hits on garbage lines after reset."
+}

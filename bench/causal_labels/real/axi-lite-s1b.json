@@ -1,0 +1,35 @@
+{
+  "mutant": "axi-lite-s1b",
+  "config": "s1b",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.xlnxdemo.axi_awready",
+    "cycle": 5,
+    "module": "xlnxdemo",
+    "instance": "TOP.xlnxdemo",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.xlnxdemo.axi_awready",
+      "module": "xlnxdemo"
+    },
+    {
+      "signal": "TOP.xlnxdemo.axi_wready",
+      "module": "xlnxdemo"
+    },
+    {
+      "signal": "TOP.xlnxdemo.slv_reg_wren",
+      "module": "xlnxdemo"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 3,
+  "set_cycle": 5,
+  "trace_rows": 10,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

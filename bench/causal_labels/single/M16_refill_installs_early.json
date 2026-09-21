@@ -1,0 +1,38 @@
+{
+  "mutant": "M16_refill_installs_early",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.state",
+    "cycle": 20,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.hit",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit0",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.mem_req_addr",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.state",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.tag_arr[1][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[1][0]",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

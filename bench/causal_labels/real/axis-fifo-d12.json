@@ -1,0 +1,27 @@
+{
+  "mutant": "axis-fifo-d12",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.axis_fifo.drop_frame_reg",
+    "cycle": 9,
+    "module": "axis_fifo",
+    "instance": "TOP.axis_fifo",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.axis_fifo.drop_frame_next",
+      "module": "axis_fifo"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 8,
+  "trace_rows": 16,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

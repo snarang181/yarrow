@@ -1,0 +1,11 @@
+--- golden/decoder_3_to_8.v
++++ buggy/decoder_3_to_8.v
+@@ -12,7 +12,7 @@
+      output Y7, Y6, Y5, Y4, Y3, Y2, Y1, Y0;
+      input  A, B, C;
+      input  en;
+-     assign {Y7,Y6,Y5,Y4,Y3,Y2,Y1,Y0} = ( {en,A,B,C} == 4'b1000) ? 8'b1111_1110 :
++     assign {Y7,Y6,Y5,Y4,Y3,Y2,Y1,Y0} = ( {en,A,B,C} == 4'b1000) ? 8'b1111_1111 :
+                                         ( {en,A,B,C} == 4'b1001) ? 8'b1111_1101 :
+                                         ( {en,A,B,C} == 4'b1010) ? 8'b1111_1011 :
+                                         ( {en,A,B,C} == 4'b1011) ? 8'b1111_0111 :

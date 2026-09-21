@@ -1,0 +1,548 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2781.2,
+    "usage": {
+      "llm_calls": 19,
+      "sims": 55,
+      "cost_usd": 3.7891
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 19,
+        "sims": 55,
+        "cost_usd": 3.789099
+      },
+      "elapsed_s": 2781.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "xlnxdemo.axi_awready",
+      "module": "xlnxdemo",
+      "event": "axi_awready` asserted (became 1) at cycle 2 after reset, when the testbench expected it to remain 0. This occurs because the FSM transitions to `WR_IDLE` and unconditionally asserts `axi_awready <= 1'b1;`.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2812.8,
+    "usage": {
+      "llm_calls": 18,
+      "sims": 73,
+      "cost_usd": 2.7274
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 18,
+        "sims": 73,
+        "cost_usd": 2.727354
+      },
+      "elapsed_s": 2812.7,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "axi_arready",
+      "module": "xlnxdemo",
+      "event": "At cycle 5, axi_arready is low but should be high.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 225.6,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 13,
+      "cost_usd": 0.1682
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 13,
+        "cost_usd": 0.16818
+      },
+      "elapsed_s": 225.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_tlast_delay",
+      "module": "xlnxstream_2018_3",
+      "event": "At cycle 41, `read_pointer` was equal to `NUMBER_OF_OUTPUT_WORDS - 1` (value 7), and `axis_tvalid` was asserted, but `M_AXIS_TREADY` was deasserted, causing `axis_tlast` to incorrectly assert (1) instead of deassert (0) because the transfer was stalled. This incorrect value propagated to `axis_tlast_delay` and `M_AXIS_TLAST` at cycle 42.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 10,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2713.1,
+    "usage": {
+      "llm_calls": 13,
+      "sims": 43,
+      "cost_usd": 3.1846
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 13,
+        "sims": 43,
+        "cost_usd": 3.1845969999999997
+      },
+      "elapsed_s": 2713.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_adapter.output_axis_tlast_int` (as identified by the golden reference, likely due to incorrect calculation or state dependencies caused by the `temp_tdata_next` omission).",
+      "module": "axis_adapter",
+      "event": "In `STATE_IDLE`, when `!EXPAND_BUS` (input bus wider than output bus) and `input_axis_tvalid` is asserted, the `output_axis_tlast_int` is incorrectly calculated for the first output chunk and `temp_tdata_next` is not correctly latched from `input_axis_tdata`.",
+      "mechanism": "datapath, FSM"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2743.5,
+    "usage": {
+      "llm_calls": 16,
+      "sims": 44,
+      "cost_usd": 1.345
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 16,
+        "sims": 44,
+        "cost_usd": 1.3450349999999998
+      },
+      "elapsed_s": 2743.3,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo_wrapper.axis_reg_inst.genblk1.store_axis_temp_to_output",
+      "module": "axis_register",
+      "event": "At cycle 3, `axis_reg_inst.m_axis_tvalid_reg` is 1, `axis_reg_inst.temp_m_axis_tvalid_reg` is 0, `axis_fifo_wrapper.m_axis_tready` is 0, and `axis_fifo_wrapper.s_axis_tvalid` is 0, causing `s_axis_tready_early` to be 1 (got) instead of 0 (expected).",
+      "mechanism": "handshake"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 2611.8,
+    "usage": {
+      "llm_calls": 16,
+      "sims": 86,
+      "cost_usd": 2.3934
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 16,
+        "sims": 86,
+        "cost_usd": 2.3933560000000003
+      },
+      "elapsed_s": 2611.7,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo.drop_frame_next",
+      "module": "axis_fifo",
+      "event": "A frame with `DROP_BAD_FRAME` enabled and a bad `s_axis_tuser` value is partially written into the FIFO before `s_axis_tlast` is asserted, leading to a corrupt frame being passed through.",
+      "mechanism": "ordering"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 68,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2949.7,
+    "usage": {
+      "llm_calls": 15,
+      "sims": 50,
+      "cost_usd": 3.5295
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 15,
+        "sims": 50,
+        "cost_usd": 3.5295449999999997
+      },
+      "elapsed_s": 2949.6,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo_wrapper.axis_fifo_inst.wr_ptr_cur_next",
+      "module": "axis_fifo",
+      "event": "At cycle 67, when operating as a non-frame FIFO, `wr_ptr_cur_next` failed to update correctly, leading to its divergence from the expected value. This was exacerbated by an incorrect `current_occupancy_count` calculation for frame FIFOs.",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 39.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0121
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.012146
+      },
+      "elapsed_s": 39.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "rst` asserted while `drop_frame` was high, but `drop_frame` was not cleared on reset.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 3,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 273.4,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 3,
+      "cost_usd": 0.1253
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 3,
+        "cost_usd": 0.125276
+      },
+      "elapsed_s": 273.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "frame_len_next",
+      "module": "axis_frame_len",
+      "event": "The `if (monitor_axis_tready && monitor_axis_tvalid)` block was not correctly encapsulated within an `always @*` block, leading to a syntax error. Logically, the calculation of `frame_len_next` was also corrupted due to redundant and malformed conditional logic for frame start/end and length increments. The specific corruption at cycle 5 likely stemmed from these overlapping and conflicting logic paths.",
+      "mechanism": "structural"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 105,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 976.7,
+    "usage": {
+      "llm_calls": 7,
+      "sims": 14,
+      "cost_usd": 0.3345
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 7,
+        "sims": 14,
+        "cost_usd": 0.33453499999999997
+      },
+      "elapsed_s": 976.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_switch.m_ifaces[0].reg_inst.s_axis_tvalid",
+      "module": "axis_switch",
+      "event": "At cycle 3, during the calculation of `s_axis_tvalid_mux` for the output register (`m_ifaces[0].reg_inst`), the internal `int_axis_tvalid` array was indexed incorrectly, causing `s_axis_tvalid_mux` to be 0 when it should have been 1, preventing the output `m_axis_tvalid` from asserting at cycle 4.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 150.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0391
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 5,
+        "cost_usd": 0.039101
+      },
+      "elapsed_s": 149.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "res_exp_next",
+      "module": "fadd",
+      "event": "When `tmp_mant[N-E]` is 0 and `tmp_mant[N-E-1]` is 1, the normalization loop incorrectly decremented `tmp_exp`.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2733.3,
+    "usage": {
+      "llm_calls": 20,
+      "sims": 78,
+      "cost_usd": 2.7761
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 20,
+        "sims": 78,
+        "cost_usd": 2.7760870000000004
+      },
+      "elapsed_s": 2732.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_z_counter",
+      "module": "llsdspi",
+      "event": "r_z_counter was set to 0 when r_state was LLSDSPI_HOTIDLE, but the module was still ready to accept a byte, meaning `o_idle` should have been 1.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 1054.2,
+    "usage": {
+      "llm_calls": 4,
+      "sims": 21,
+      "cost_usd": 2.4083
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 4,
+        "sims": 21,
+        "cost_usd": 2.408319
+      },
+      "elapsed_s": 1054.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "_wb_ack_delay1",
+      "module": "sdspi",
+      "event": "At cycle 10 of the `csv` test, when a Wishbone read transaction (indicated by `i_wb_stb=1`, `i_wb_cyc=1`, and `i_wb_we=0`) was active, `_wb_ack_delay1` was incorrectly driven to 0 because of the `&& i_wb_we` condition, leading to `o_wb_ack` being 0 at cycle 12 instead of 1.",
+      "mechanism": "logical_error"
+    },
+    "cause_verified": false,
+    "cause_rounds": 0,
+    "patch_lines": 35,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2824.4,
+    "usage": {
+      "llm_calls": 15,
+      "sims": 51,
+      "cost_usd": 2.2744
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 15,
+        "sims": 51,
+        "cost_usd": 2.274445
+      },
+      "elapsed_s": 2824.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "sdspi.fifo_b_wr_data",
+      "module": "sdspi",
+      "event": "Misplacement of assignments within `case` statement for `ll_fifo_addr[1:0]` and malformed bit literal syntax leading to incorrect `fifo_b_wr_data` calculation.",
+      "mechanism": "datapath, syntax"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  }
+]

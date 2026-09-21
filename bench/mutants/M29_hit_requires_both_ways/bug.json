@@ -1,0 +1,5 @@
+{
+  "id": "M29_hit_requires_both_ways",
+  "class": "tag_match",
+  "desc": "Hit requires both ways to match; every access misses and the cache livelocks."
+}

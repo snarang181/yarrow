@@ -1,0 +1,5 @@
+{
+  "id": "M19_resp_loops_to_cmp",
+  "class": "fsm",
+  "desc": "Response state transitions back to compare instead of idle; the FSM livelocks."
+}

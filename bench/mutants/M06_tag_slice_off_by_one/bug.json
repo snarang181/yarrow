@@ -1,0 +1,5 @@
+{
+  "id": "M06_tag_slice_off_by_one",
+  "class": "addressing",
+  "desc": "Tag extracted from the wrong address bits; distinct lines alias."
+}

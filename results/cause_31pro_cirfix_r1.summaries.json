@@ -1,0 +1,953 @@
+[
+  {
+    "mutant": "decoder_3_to_8-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 44.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.0333
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.03335
+      },
+      "elapsed_s": 44.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y0",
+      "module": "decoder_3to8",
+      "event": "{en,A,B,C} == 4'b1000",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 37.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.0219
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.021935
+      },
+      "elapsed_s": 37.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y0",
+      "module": "decoder_3to8",
+      "event": "en=1, A=0, B=0, C=0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-super_buggy",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 57.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.042
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.042033
+      },
+      "elapsed_s": 57.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y6",
+      "module": "decoder_3to8",
+      "event": "when enable (`en`) is 0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 12,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 54.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.0527
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.052676
+      },
+      "elapsed_s": 54.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y7",
+      "module": "decoder_3to8",
+      "event": "en == 0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 4,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 60.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.0573
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.057332
+      },
+      "elapsed_s": 60.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y7",
+      "module": "decoder_3to8",
+      "event": "en=0 or when decoded value is not 7 (causing Y7 to incorrectly be 0)",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 18,
+    "matches_golden": false
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_all",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 111.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.1638
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.163828
+      },
+      "elapsed_s": 111.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "when reset is asserted",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 21,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_counter",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 107.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 12,
+      "cost_usd": 0.1605
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 12,
+        "cost_usd": 0.160458
+      },
+      "elapsed_s": 107.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "counter_out",
+      "module": "first_counter",
+      "event": "when enable is active and the counter increments",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 13,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_overflow",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 66.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.0761
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.076139
+      },
+      "elapsed_s": 66.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "counter_out == 4'b1111",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 49.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.0255
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.025461
+      },
+      "elapsed_s": 49.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "counter_out",
+      "module": "first_counter",
+      "event": "clock falling edge while enable is active",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 90.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.1168
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.116828
+      },
+      "elapsed_s": 90.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "counter_out == 4'b1111 and enable == 1'b1",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 10,
+    "matches_golden": true
+  },
+  {
+    "mutant": "flip_flop-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 33.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0133
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.013253
+      },
+      "elapsed_s": 33.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "q",
+      "module": "tff",
+      "event": "rstn goes high (1)",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "flip_flop-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 40.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0192
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.019201
+      },
+      "elapsed_s": 40.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "q",
+      "module": "tff",
+      "event": "when rstn is 1 or t is 1",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 106.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.2241
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.224094
+      },
+      "elapsed_s": 106.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "fsm_full",
+      "event": "In state GNT0 when req_0 is 1",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 143.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.3445
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.344546
+      },
+      "elapsed_s": 143.0,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "fsm_full",
+      "event": "req_0 is deasserted while the FSM is in state GNT0",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-ssscrazy_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 122.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.2583
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.25834
+      },
+      "elapsed_s": 121.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_0",
+      "module": "fsm_full",
+      "event": "when a new request causes next_state to transition to a grant state",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 30,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-super_buggy",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 123.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.1665
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 4,
+        "cost_usd": 0.166491
+      },
+      "elapsed_s": 122.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "fsm_full",
+      "event": "In the IDLE state, when req_3 is 0, next_state incorrectly evaluates to GNT3.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 14,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 84.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.1272
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 4,
+        "cost_usd": 0.127184
+      },
+      "elapsed_s": 84.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_3",
+      "module": "fsm_full",
+      "event": "FSM enters the GNT3 state",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 50.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.0408
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 4,
+        "cost_usd": 0.040765
+      },
+      "elapsed_s": 50.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "Shift operation activated (rstn = 1 and load_en = 0)",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 3,
+    "matches_golden": false
+  },
+  {
+    "mutant": "lshift_reg-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 49.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0336
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.033646
+      },
+      "elapsed_s": 48.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "rstn is 1 and load_en is 0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 5,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 33.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0253
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.025291
+      },
+      "elapsed_s": 33.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "when load_en is 0 and it attempts to shift",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 13,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 104.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.1131
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.113134
+      },
+      "elapsed_s": 104.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "rstn=1 and load_en=1",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 11,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 23.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0179
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.017871
+      },
+      "elapsed_s": 23.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "sel == 2'b01",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-kgoliya_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 29.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0245
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.024454
+      },
+      "elapsed_s": 29.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "When a selected 4-bit input has non-zero upper bits and is routed to the output",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 31.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0253
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.025279
+      },
+      "elapsed_s": 31.0,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "sel != 0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 7,
+    "matches_golden": true
+  }
+]

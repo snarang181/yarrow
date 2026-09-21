@@ -1,0 +1,27 @@
+--- golden/tff.v
++++ buggy/tff.v
+@@ -1,15 +1,15 @@
+ module tff (   input clk,
+-              input rstn,
+-              input t,
+-            output reg q);
+- 
+-  always @ (posedge clk) begin
+-    if (!rstn) 
++               input 	  rstn,
++               input 	  t,
++               output reg q);
++   
++   always @ (posedge clk) begin
++    if (rstn) 
+       q <= 0;
+     else
+       if (t)
+-          q <= ~q;
++        q <= q;
+       else
+-          q <= q;
+-  end
+-endmodule+        q <= ~q;
++   end
++endmodule

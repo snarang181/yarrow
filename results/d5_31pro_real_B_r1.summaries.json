@@ -1,0 +1,548 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 172.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.5168
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.516815
+      },
+      "elapsed_s": 172.3,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "axi_awready",
+      "module": "xlnxdemo",
+      "event": "Master issues a new write request while a previous BVALID is high and BREADY is low",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 6,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 131.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.369
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.369043
+      },
+      "elapsed_s": 130.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "axi_arready",
+      "module": "xlnxdemo",
+      "event": "Master asserts S_AXI_ARVALID while a previous read response is pending (axi_rvalid=1 and S_AXI_RREADY=0)",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 211.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.3502
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.350162
+      },
+      "elapsed_s": 211.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_tlast_delay",
+      "module": "xlnxstream_2018_3",
+      "event": "when M_AXIS_TREADY is deasserted by the slave during a valid transaction",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 246.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 11,
+      "cost_usd": 1.1133
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 11,
+        "cost_usd": 1.113345
+      },
+      "elapsed_s": 246.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "input_axis_tready_reg",
+      "module": "axis_adapter",
+      "event": "When narrowing bus width and the input word perfectly aligns with an output cycle boundary, leaving trailing empty cycles.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 10,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 694.3,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 47,
+      "cost_usd": 2.3156
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 47,
+        "cost_usd": 2.315644
+      },
+      "elapsed_s": 694.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "m_axis_tdata_reg",
+      "module": "axis_register",
+      "event": "downstream FIFO falsely claims ready during reset, causing the register to incorrectly advance and overwrite its unaccepted data",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 163.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 12,
+      "cost_usd": 0.4413
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 12,
+        "cost_usd": 0.441305
+      },
+      "elapsed_s": 163.6,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame_reg",
+      "module": "axis_fifo",
+      "event": "A bubble (s_axis_tvalid=0) occurs while a frame is currently being dropped.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 715.3,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 59,
+      "cost_usd": 2.8628
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 59,
+        "cost_usd": 2.8628020000000003
+      },
+      "elapsed_s": 715.3,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "full",
+      "module": "axis_fifo",
+      "event": "when uncommitted frame data fills the FIFO capacity while FRAME_FIFO is enabled",
+      "mechanism": "wrong_pointer"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 5,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 104.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.1962
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.196205
+      },
+      "elapsed_s": 104.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "reset occurs while drop_frame is high",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 83.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.1237
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 4,
+        "cost_usd": 0.123673
+      },
+      "elapsed_s": 83.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "frame_len_reg",
+      "module": "axis_frame_len",
+      "event": "A single-word frame is received (monitor_axis_tlast is true and frame_reg is false during a valid transfer)",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 9,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 208.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 11,
+      "cost_usd": 0.8759
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 11,
+        "cost_usd": 0.875869
+      },
+      "elapsed_s": 208.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "m_axis_tvalid_reg",
+      "module": "axis_register",
+      "event": "When an input port (index > 0) is granted to an output port, out-of-bounds indexing causes the valid signal mux to incorrectly evaluate to 0.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 170.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.1778
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.177755
+      },
+      "elapsed_s": 170.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "res",
+      "module": "fadd",
+      "event": "whenever an addition/subtraction does not overflow into bit 24 (e.g. 0.0 + 1.0) and normalizes from bit 23 downwards",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 1640.7,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 77,
+      "cost_usd": 5.4524
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 77,
+        "cost_usd": 5.452356
+      },
+      "elapsed_s": 1640.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_z_counter",
+      "module": "llsdspi",
+      "event": "r_clk_counter reaches 1 while startup_hold is active",
+      "mechanism": "priority"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 11,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 336.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 12,
+      "cost_usd": 1.5183
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 12,
+        "cost_usd": 1.518308
+      },
+      "elapsed_s": 336.3,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "o_wb_ack",
+      "module": "sdspi",
+      "event": "Upon any Wishbone transaction, it asserts one cycle before data is ready due to the BRAM read delay.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 8,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 2801.6,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 33,
+      "cost_usd": 4.0854
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 33,
+        "cost_usd": 4.085379
+      },
+      "elapsed_s": 2801.6,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "fifo_b_wr_data",
+      "module": "sdspi",
+      "event": "write_stb && wb_addr[1:0] == 2'b11",
+      "mechanism": "endianness"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 16,
+    "matches_golden": false
+  }
+]

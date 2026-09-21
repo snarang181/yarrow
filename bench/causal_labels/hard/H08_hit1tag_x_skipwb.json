@@ -1,0 +1,43 @@
+{
+  "mutant": "H08_hit1tag_x_skipwb",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.beat",
+    "cycle": 147,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.hit",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit1",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit_way",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M08_hit1_compares_way0_tag",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 147,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M14_miss_skips_writeback",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.state",
+        "cycle": 342,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

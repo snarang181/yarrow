@@ -1,0 +1,30 @@
+{
+  "id": "first_counter_overflow-buggy_overflow",
+  "project": "first_counter_overflow",
+  "bug": "buggy_overflow",
+  "sources": [
+    "first_counter_overflow.v"
+  ],
+  "top": "first_counter",
+  "bug_file": "first_counter_overflow.v",
+  "tables": [
+    {
+      "name": "orig_tb",
+      "file": "orig_tb.csv",
+      "rows": 26
+    },
+    {
+      "name": "en_test_tb",
+      "file": "en_test_tb.csv",
+      "rows": 26
+    }
+  ],
+  "rtl_lines": 55,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/cirfix",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "CirFix: Automatically Repairing Defects in Hardware Design Code (ASPLOS'22); defects injected by the CirFix authors and students (externally authored synthetic control tier X, docs D6)",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "first_counter_buggy_overflow.v"
+  }
+}

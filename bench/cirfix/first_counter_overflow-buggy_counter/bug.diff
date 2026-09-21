@@ -1,0 +1,16 @@
+--- golden/first_counter_overflow.v
++++ buggy/first_counter_overflow.v
+@@ -41,11 +41,10 @@
+     end
+     //If enable is active, we increment the counter
+     else if(enable == 1'b1) begin
+-        counter_out <= #1 counter_out + 1;
+-
++        counter_out <= #1 counter_out + 2;
+     end
+     // if it overflows, set overflow_out to be 1
+-    if(counter_out == 4'b1111)
++    if(counter_out >= 4'b1110)
+     begin
+         overflow_out <= 1'b1;
+     end

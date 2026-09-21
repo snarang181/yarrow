@@ -1,0 +1,10 @@
+{
+  "id": "H15_flushd_wbready_word0",
+  "class": "composed",
+  "parts": [
+    "M03_flush_checks_way0_dirty",
+    "M11_wb_ignores_ready",
+    "M26_resp_word0"
+  ],
+  "desc": "Flush scan tests way 0's dirty bit for both ways; dirty way-1 lines can be skipped. + Writeback advances beats without waiting for mem_req_ready; beats are lost under backpressure. + Read response always returns word 0 of the line regardless of offset."
+}

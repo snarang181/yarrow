@@ -1,0 +1,25 @@
+{
+  "id": "axis-frame-len-d13",
+  "project": "axis-frame-len-d13",
+  "bug": "d13",
+  "sources": [
+    "axis_frame_len.v"
+  ],
+  "top": "axis_frame_len",
+  "bug_file": "axis_frame_len.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 6
+    }
+  ],
+  "rtl_lines": 122,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "axis_frame_len_bug_d13.v"
+  }
+}

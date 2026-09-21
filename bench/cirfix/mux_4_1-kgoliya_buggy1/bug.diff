@@ -1,0 +1,11 @@
+--- golden/mux_4_1.v
++++ buggy/mux_4_1.v
+@@ -3,7 +3,7 @@
+                        input [3:0] c,                 // 4-bit input called c
+                        input [3:0] d,                 // 4-bit input called d
+                        input [1:0] sel,               // input sel used to select between a,b,c,d
+-                       output reg [3:0] out);         // 4-bit output based on input sel
++                       output reg out);               // 4-bit output based on input sel
+ 
+    // This always block gets executed whenever a/b/c/d/sel changes value
+    // When that happens, based on value in sel, output is assigned to either a/b/c/d

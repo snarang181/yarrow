@@ -1,0 +1,25 @@
+{
+  "id": "axis-adapter-s3",
+  "project": "axis-adapter-s3",
+  "bug": "s3",
+  "sources": [
+    "axis_adapter.v"
+  ],
+  "top": "axis_adapter",
+  "bug_file": "axis_adapter.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 13
+    }
+  ],
+  "rtl_lines": 475,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "axis_adapter_bug_s3.v"
+  }
+}

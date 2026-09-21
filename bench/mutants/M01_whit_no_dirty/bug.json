@@ -1,0 +1,5 @@
+{
+  "id": "M01_whit_no_dirty",
+  "class": "dirty",
+  "desc": "Write hit fails to mark the line dirty; later eviction silently drops the write."
+}

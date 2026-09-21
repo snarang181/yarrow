@@ -1,0 +1,5 @@
+{
+  "id": "M07_index_slice_off_by_one",
+  "class": "addressing",
+  "desc": "Set index extracted from the wrong address bits."
+}

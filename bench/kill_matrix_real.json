@@ -1,0 +1,366 @@
+{
+  "axi-lite-s1b": {
+    "name": "axi-lite-s1b",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "s1b",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=10"
+      }
+    ],
+    "results": [
+      {
+        "name": "s1b",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: S_AXI_AWREADY got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "s1b"
+    ],
+    "build_log": ""
+  },
+  "axi-lite-s1r": {
+    "name": "axi-lite-s1r",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "s1r",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=10"
+      }
+    ],
+    "results": [
+      {
+        "name": "s1r",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: S_AXI_ARREADY got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "s1r"
+    ],
+    "build_log": ""
+  },
+  "axi-stream-s2": {
+    "name": "axi-stream-s2",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=45"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @42: M_AXIS_TLAST got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-adapter-s3": {
+    "name": "axis-adapter-s3",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=13"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @8: input_axis_tready got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-async-fifo-c4": {
+    "name": "axis-async-fifo-c4",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=10"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @4: input_axis_tready got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-fifo-d12": {
+    "name": "axis-fifo-d12",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=16"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: m_axis_tdata got 4 expected 3"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-fifo-d4": {
+    "name": "axis-fifo-d4",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=185"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @67: s_axis_tready got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-frame-fifo-d11": {
+    "name": "axis-frame-fifo-d11",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=17"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @13: drop_frame got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-frame-len-d13": {
+    "name": "axis-frame-len-d13",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=6"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @5: frame_len got 3 expected 1"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "axis-switch-d8": {
+    "name": "axis-switch-d8",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=14"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @4: m_axis_tvalid got 0 expected 1"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "fadd-d7": {
+    "name": "fadd-d7",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.0,
+        "output_tail": "PASS: rows=20"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @9: res got 1056964608 expected 1065353216"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "zipcpu-spi-c1": {
+    "name": "zipcpu-spi-c1",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.65,
+        "output_tail": "PASS: rows=522559"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @101: o_sck got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "zipcpu-spi-c3": {
+    "name": "zipcpu-spi-c3",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.65,
+        "output_tail": "PASS: rows=522559"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.0,
+        "output_tail": "FAIL @6: o_wb_ack got 1 expected 0"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  },
+  "zipcpu-spi-d9": {
+    "name": "zipcpu-spi-d9",
+    "compiled": true,
+    "golden": [
+      {
+        "name": "csv",
+        "passed": true,
+        "returncode": 0,
+        "wall_s": 0.71,
+        "output_tail": "PASS: rows=522559"
+      }
+    ],
+    "results": [
+      {
+        "name": "csv",
+        "passed": false,
+        "returncode": 1,
+        "wall_s": 0.6,
+        "output_tail": "FAIL @483920: o_wb_data got 1732610923 expected 1804289383"
+      }
+    ],
+    "killed_by": [
+      "csv"
+    ],
+    "build_log": ""
+  }
+}

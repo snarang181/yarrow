@@ -1,0 +1,18 @@
+{
+  "mutant": "M28_wb_addr_uses_req_index",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.mem_req_addr",
+    "cycle": 35890,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.mem_req_addr",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

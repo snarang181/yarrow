@@ -1,0 +1,5 @@
+{
+  "id": "M15_wb_truncated",
+  "class": "ordering",
+  "desc": "Writeback terminates one beat early; the last word of the line never reaches memory."
+}

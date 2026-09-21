@@ -1,0 +1,9 @@
+{
+  "id": "H01_dirty_x_flushrange",
+  "class": "composed",
+  "parts": [
+    "M01_whit_no_dirty",
+    "M21_flush_done_after_set0"
+  ],
+  "desc": "Write hit fails to mark the line dirty; later eviction silently drops the write. + Flush completion compares the scan index against 0; only set 0 is flushed."
+}

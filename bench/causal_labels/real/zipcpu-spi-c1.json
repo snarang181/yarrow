@@ -1,0 +1,27 @@
+{
+  "mutant": "zipcpu-spi-c1",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.sdspi.lowlevel.r_z_counter",
+    "cycle": 100,
+    "module": "llsdspi",
+    "instance": "TOP.sdspi.lowlevel",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.sdspi.lowlevel.r_z_counter",
+      "module": "llsdspi"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 100,
+  "trace_rows": 522559,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

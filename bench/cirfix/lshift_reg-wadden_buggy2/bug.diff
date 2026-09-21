@@ -1,0 +1,16 @@
+--- golden/lshift_reg.v
++++ buggy/lshift_reg.v
+@@ -10,7 +10,7 @@
+    // If reset is high, load new value to op if load_en=1
+    // If reset is high, and load_en=0 shift register to left
+    always @ (posedge clk) begin
+-      if (!rstn) begin
++      if (rstn) begin
+         op <= 0;
+       end else begin
+  
+@@ -27,4 +27,4 @@
+       end
+     end
+ endmodule
+- + 

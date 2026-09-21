@@ -1,0 +1,18 @@
+{
+  "mutant": "M07_index_slice_off_by_one",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.r_idx",
+    "cycle": 4,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.r_idx",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

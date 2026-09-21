@@ -1,0 +1,5 @@
+{
+  "id": "M11_wb_ignores_ready",
+  "class": "backpressure",
+  "desc": "Writeback advances beats without waiting for mem_req_ready; beats are lost under backpressure."
+}

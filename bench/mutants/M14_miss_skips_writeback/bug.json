@@ -1,0 +1,5 @@
+{
+  "id": "M14_miss_skips_writeback",
+  "class": "ordering",
+  "desc": "Dirty miss goes straight to refill; the dirty victim line is never written back."
+}

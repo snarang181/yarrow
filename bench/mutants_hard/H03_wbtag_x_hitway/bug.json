@@ -1,0 +1,9 @@
+{
+  "id": "H03_wbtag_x_hitway",
+  "class": "composed",
+  "parts": [
+    "M05_wb_wrong_way_tag",
+    "M09_hit_way_inverted"
+  ],
+  "desc": "Writeback address is formed from the non-victim way's tag. + Hit-way select uses the wrong comparator output; data accessed from the wrong way."
+}

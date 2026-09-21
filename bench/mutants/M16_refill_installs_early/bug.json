@@ -1,0 +1,5 @@
+{
+  "id": "M16_refill_installs_early",
+  "class": "ordering",
+  "desc": "Line is installed after three of four refill beats; the last word is stale."
+}

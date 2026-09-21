@@ -1,0 +1,208 @@
+{
+  "comment": "Each mutation is an exact-match find/replace applied once to rtl/cache_ctrl.sv. Classes follow the YARROW proposal taxonomy.",
+  "mutations": [
+    {
+      "id": "M01_whit_no_dirty",
+      "class": "dirty",
+      "desc": "Write hit fails to mark the line dirty; later eviction silently drops the write.",
+      "find": "              dirty_arr[r_idx][hit_way] <= 1'b1;",
+      "replace": "              dirty_arr[r_idx][hit_way] <= dirty_arr[r_idx][hit_way];"
+    },
+    {
+      "id": "M02_wb_cond_inverted",
+      "class": "dirty",
+      "desc": "Writeback condition inverted: dirty victims are dropped, clean victims written back.",
+      "find": "            if (valid_arr[r_idx][victim_way] && dirty_arr[r_idx][victim_way])",
+      "replace": "            if (valid_arr[r_idx][victim_way] && !dirty_arr[r_idx][victim_way])"
+    },
+    {
+      "id": "M03_flush_checks_way0_dirty",
+      "class": "dirty",
+      "desc": "Flush scan tests way 0's dirty bit for both ways; dirty way-1 lines can be skipped.",
+      "find": "          if (valid_arr[fl_idx][fl_way] && dirty_arr[fl_idx][fl_way]) begin",
+      "replace": "          if (valid_arr[fl_idx][fl_way] && dirty_arr[fl_idx][1'b0]) begin"
+    },
+    {
+      "id": "M04_evict_way_mismatch",
+      "class": "replacement",
+      "desc": "Victim bookkeeping latches the opposite way; writeback/refill target the wrong way.",
+      "find": "            wb_way <= victim_way;",
+      "replace": "            wb_way <= ~victim_way;"
+    },
+    {
+      "id": "M05_wb_wrong_way_tag",
+      "class": "replacement",
+      "desc": "Writeback address is formed from the non-victim way's tag.",
+      "find": "            wb_tag <= tag_arr[r_idx][victim_way];",
+      "replace": "            wb_tag <= tag_arr[r_idx][~victim_way];"
+    },
+    {
+      "id": "M06_tag_slice_off_by_one",
+      "class": "addressing",
+      "desc": "Tag extracted from the wrong address bits; distinct lines alias.",
+      "find": "  wire [TAG_W-1:0] r_tag = r_addr[15:7];",
+      "replace": "  wire [TAG_W-1:0] r_tag = r_addr[14:6];"
+    },
+    {
+      "id": "M07_index_slice_off_by_one",
+      "class": "addressing",
+      "desc": "Set index extracted from the wrong address bits.",
+      "find": "  wire [IDX_W-1:0] r_idx = r_addr[6:4];",
+      "replace": "  wire [IDX_W-1:0] r_idx = r_addr[7:5];"
+    },
+    {
+      "id": "M08_hit1_compares_way0_tag",
+      "class": "tag_match",
+      "desc": "Way-1 hit comparator reads way 0's tag; false hits and false misses.",
+      "find": "    hit1    = valid_arr[r_idx][1] && (tag_arr[r_idx][1] == r_tag);",
+      "replace": "    hit1    = valid_arr[r_idx][1] && (tag_arr[r_idx][0] == r_tag);"
+    },
+    {
+      "id": "M09_hit_way_inverted",
+      "class": "tag_match",
+      "desc": "Hit-way select uses the wrong comparator output; data accessed from the wrong way.",
+      "find": "    hit_way = hit1;",
+      "replace": "    hit_way = hit0;"
+    },
+    {
+      "id": "M10_refill_addr_uses_victim_tag",
+      "class": "addressing",
+      "desc": "Refill fetches from the victim's old address instead of the requested address.",
+      "find": "        mem_req_addr  = {r_tag, r_idx, beat[OFF_W-1:0], 2'b00};",
+      "replace": "        mem_req_addr  = {wb_tag, r_idx, beat[OFF_W-1:0], 2'b00};"
+    },
+    {
+      "id": "M11_wb_ignores_ready",
+      "class": "backpressure",
+      "desc": "Writeback advances beats without waiting for mem_req_ready; beats are lost under backpressure.",
+      "find": "        S_WB: begin\n          if (mem_req_valid && mem_req_ready) begin",
+      "replace": "        S_WB: begin\n          if (mem_req_valid) begin"
+    },
+    {
+      "id": "M12_rf_ignores_ready",
+      "class": "backpressure",
+      "desc": "Refill request counter advances without accept; read beats are dropped and the refill hangs.",
+      "find": "        S_RF: begin\n          if (mem_req_valid && mem_req_ready)\n            beat <= beat + 3'd1;",
+      "replace": "        S_RF: begin\n          if (mem_req_valid)\n            beat <= beat + 3'd1;"
+    },
+    {
+      "id": "M13_flushwb_ignores_ready",
+      "class": "backpressure",
+      "desc": "Flush writeback advances beats without waiting for mem_req_ready.",
+      "find": "        S_FLUSH_WB: begin\n          if (mem_req_valid && mem_req_ready) begin",
+      "replace": "        S_FLUSH_WB: begin\n          if (mem_req_valid) begin"
+    },
+    {
+      "id": "M14_miss_skips_writeback",
+      "class": "ordering",
+      "desc": "Dirty miss goes straight to refill; the dirty victim line is never written back.",
+      "find": "              state <= S_WB;",
+      "replace": "              state <= S_RF;"
+    },
+    {
+      "id": "M15_wb_truncated",
+      "class": "ordering",
+      "desc": "Writeback terminates one beat early; the last word of the line never reaches memory.",
+      "find": "            if (beat == WORDS[2:0] - 3'd1) begin\n              dirty_arr[wb_idx][wb_way] <= 1'b0;\n              beat  <= '0;\n              state <= S_RF;",
+      "replace": "            if (beat == WORDS[2:0] - 3'd2) begin\n              dirty_arr[wb_idx][wb_way] <= 1'b0;\n              beat  <= '0;\n              state <= S_RF;"
+    },
+    {
+      "id": "M16_refill_installs_early",
+      "class": "ordering",
+      "desc": "Line is installed after three of four refill beats; the last word is stale.",
+      "find": "            if (rf_got == WORDS[2:0] - 3'd1) begin",
+      "replace": "            if (rf_got == WORDS[2:0] - 3'd2) begin"
+    },
+    {
+      "id": "M17_reset_valid_high",
+      "class": "reset",
+      "desc": "Reset drives valid bits high; the cache hits on garbage lines after reset.",
+      "find": "          valid_arr[s][w] <= 1'b0;",
+      "replace": "          valid_arr[s][w] <= 1'b1;"
+    },
+    {
+      "id": "M18_reset_flush_done_high",
+      "class": "reset",
+      "desc": "flush_done resets to 1, emitting a spurious completion pulse after reset.",
+      "find": "      state      <= S_IDLE;\n      resp_valid <= 1'b0;\n      flush_done <= 1'b0;",
+      "replace": "      state      <= S_IDLE;\n      resp_valid <= 1'b0;\n      flush_done <= 1'b1;"
+    },
+    {
+      "id": "M19_resp_loops_to_cmp",
+      "class": "fsm",
+      "desc": "Response state transitions back to compare instead of idle; the FSM livelocks.",
+      "find": "        S_RESP: begin\n          resp_valid <= 1'b1;\n          state      <= S_IDLE;\n        end",
+      "replace": "        S_RESP: begin\n          resp_valid <= 1'b1;\n          state      <= S_CMP;\n        end"
+    },
+    {
+      "id": "M20_flush_way_stuck",
+      "class": "fsm",
+      "desc": "Flush scan never toggles the way pointer; the scan never advances.",
+      "find": "            fl_way <= ~fl_way;",
+      "replace": "            fl_way <= fl_way;"
+    },
+    {
+      "id": "M21_flush_done_after_set0",
+      "class": "fsm",
+      "desc": "Flush completion compares the scan index against 0; only set 0 is flushed.",
+      "find": "              if (fl_idx == IDX_W'(SETS - 1)) begin",
+      "replace": "              if (fl_idx == '0) begin"
+    },
+    {
+      "id": "M22_install_no_valid",
+      "class": "fsm",
+      "desc": "Refill never sets the valid bit; the lookup retries and refills forever.",
+      "find": "              valid_arr[r_idx][wb_way] <= 1'b1;",
+      "replace": "              valid_arr[r_idx][wb_way] <= valid_arr[r_idx][wb_way];"
+    },
+    {
+      "id": "M23_install_no_tag",
+      "class": "fsm",
+      "desc": "Refill never updates the tag; retry misses again or hits stale tags with new data.",
+      "find": "              tag_arr[r_idx][wb_way]   <= r_tag;",
+      "replace": "              tag_arr[r_idx][wb_way]   <= tag_arr[r_idx][wb_way];"
+    },
+    {
+      "id": "M24_wstrb_ignored",
+      "class": "datapath",
+      "desc": "Byte strobes ignored; partial-word writes clobber neighboring bytes.",
+      "find": "                if (r_wstrb[b])",
+      "replace": "                if (1'b1)"
+    },
+    {
+      "id": "M25_wdata_lane0_everywhere",
+      "class": "datapath",
+      "desc": "Every byte lane is written with wdata byte 0.",
+      "find": "                  data_arr[r_idx][hit_way][r_off][8*b +: 8] <= r_wdata[8*b +: 8];",
+      "replace": "                  data_arr[r_idx][hit_way][r_off][8*b +: 8] <= r_wdata[7:0];"
+    },
+    {
+      "id": "M26_resp_word0",
+      "class": "datapath",
+      "desc": "Read response always returns word 0 of the line regardless of offset.",
+      "find": "            r_resp_data       <= data_arr[r_idx][hit_way][r_off];",
+      "replace": "            r_resp_data       <= data_arr[r_idx][hit_way][2'd0];"
+    },
+    {
+      "id": "M27_refill_indexed_by_beat",
+      "class": "datapath",
+      "desc": "Refill data placed by the request counter instead of the response counter; words land in wrong slots when requests outrun responses.",
+      "find": "            data_arr[r_idx][wb_way][rf_got[OFF_W-1:0]] <= mem_resp_rdata;",
+      "replace": "            data_arr[r_idx][wb_way][beat[OFF_W-1:0]] <= mem_resp_rdata;"
+    },
+    {
+      "id": "M28_wb_addr_uses_req_index",
+      "class": "addressing",
+      "desc": "Writeback address uses the current request's index; flush writebacks go to stale addresses.",
+      "find": "        mem_req_addr  = {wb_tag, wb_idx, beat[OFF_W-1:0], 2'b00};",
+      "replace": "        mem_req_addr  = {wb_tag, r_idx, beat[OFF_W-1:0], 2'b00};"
+    },
+    {
+      "id": "M29_hit_requires_both_ways",
+      "class": "tag_match",
+      "desc": "Hit requires both ways to match; every access misses and the cache livelocks.",
+      "find": "    hit     = hit0 || hit1;",
+      "replace": "    hit     = hit0 && hit1;"
+    }
+  ]
+}

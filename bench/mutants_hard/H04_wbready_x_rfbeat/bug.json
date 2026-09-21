@@ -1,0 +1,9 @@
+{
+  "id": "H04_wbready_x_rfbeat",
+  "class": "composed",
+  "parts": [
+    "M11_wb_ignores_ready",
+    "M27_refill_indexed_by_beat"
+  ],
+  "desc": "Writeback advances beats without waiting for mem_req_ready; beats are lost under backpressure. + Refill data placed by the request counter instead of the response counter; words land in wrong slots when requests outrun responses."
+}

@@ -1,0 +1,35 @@
+{
+  "mutant": "H03_wbtag_x_hitway",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.lru_arr[1]",
+    "cycle": 27,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.hit_way",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M05_wb_wrong_way_tag",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.wb_tag",
+        "cycle": 123,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M09_hit_way_inverted",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.lru_arr[1]",
+        "cycle": 27,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

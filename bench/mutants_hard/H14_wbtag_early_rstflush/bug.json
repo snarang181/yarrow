@@ -1,0 +1,10 @@
+{
+  "id": "H14_wbtag_early_rstflush",
+  "class": "composed",
+  "parts": [
+    "M05_wb_wrong_way_tag",
+    "M16_refill_installs_early",
+    "M18_reset_flush_done_high"
+  ],
+  "desc": "Writeback address is formed from the non-victim way's tag. + Line is installed after three of four refill beats; the last word is stale. + flush_done resets to 1, emitting a spurious completion pulse after reset."
+}

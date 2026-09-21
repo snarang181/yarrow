@@ -1,0 +1,27 @@
+{
+  "id": "axis-async-fifo-c4",
+  "project": "axis-async-fifo-c4",
+  "bug": "c4",
+  "sources": [
+    "axis_async_fifo.v",
+    "axis_fifo_wrapper.v",
+    "axis_register.v"
+  ],
+  "top": "axis_fifo_wrapper",
+  "bug_file": "axis_async_fifo.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 10
+    }
+  ],
+  "rtl_lines": 545,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "axis_async_fifo_bug_c4.v"
+  }
+}

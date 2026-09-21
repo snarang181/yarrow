@@ -1,0 +1,5 @@
+{
+  "id": "M18_reset_flush_done_high",
+  "class": "reset",
+  "desc": "flush_done resets to 1, emitting a spurious completion pulse after reset."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "axis-switch-d8",
+  "project": "axis-switch-d8",
+  "bug": "d8",
+  "sources": [
+    "arbiter.v",
+    "axis_register.v",
+    "axis_switch.v",
+    "priority_encoder.v"
+  ],
+  "top": "axis_switch",
+  "bug_file": "axis_switch.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 14
+    }
+  ],
+  "rtl_lines": 882,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "axis_switch_bug_d8.v"
+  }
+}

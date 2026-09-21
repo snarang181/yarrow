@@ -1,0 +1,27 @@
+{
+  "mutant": "fsm_full-buggy_var",
+  "config": "orig_tb",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.fsm_full.state",
+    "cycle": 14,
+    "module": "fsm_full",
+    "instance": "TOP.fsm_full",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.fsm_full.next_state",
+      "module": "fsm_full"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 13,
+  "trace_rows": 38,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

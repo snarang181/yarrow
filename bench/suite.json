@@ -1,0 +1,13 @@
+{
+  "comment": "Detection test suite: each entry is a set of plusargs for tb_main. A design PASSES the suite iff every config exits 0.",
+  "configs": [
+    {"name": "default",        "args": {"seed": 101, "ops": 2000, "tags": 4, "wprob": 50,  "readyprob": 70, "latmax": 8}},
+    {"name": "evict_bp_heavy", "args": {"seed": 102, "ops": 2000, "tags": 2, "wprob": 80,  "readyprob": 30, "latmax": 20}},
+    {"name": "read_fastmem",   "args": {"seed": 103, "ops": 2000, "tags": 8, "wprob": 20,  "readyprob": 95, "latmax": 1}},
+    {"name": "mixed_midlat",   "args": {"seed": 104, "ops": 2000, "tags": 3, "wprob": 50,  "readyprob": 50, "latmax": 12}},
+    {"name": "write_storm",    "args": {"seed": 105, "ops": 500,  "tags": 2, "wprob": 100, "readyprob": 70, "latmax": 8}},
+    {"name": "read_only",      "args": {"seed": 106, "ops": 500,  "tags": 8, "wprob": 0,   "readyprob": 70, "latmax": 8}},
+    {"name": "long_soak",      "args": {"seed": 107, "ops": 4000, "tags": 4, "wprob": 50,  "readyprob": 60, "latmax": 4}},
+    {"name": "smoke",          "args": {"seed": 108, "ops": 100,  "tags": 2, "wprob": 50,  "readyprob": 70, "latmax": 8}}
+  ]
+}

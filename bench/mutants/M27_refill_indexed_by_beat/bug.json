@@ -1,0 +1,5 @@
+{
+  "id": "M27_refill_indexed_by_beat",
+  "class": "datapath",
+  "desc": "Refill data placed by the request counter instead of the response counter; words land in wrong slots when requests outrun responses."
+}

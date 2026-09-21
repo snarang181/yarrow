@@ -1,0 +1,30 @@
+{
+  "mutant": "M14_miss_skips_writeback",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.state",
+    "cycle": 342,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.mem_req_addr",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.mem_req_wdata",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.mem_req_we",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.state",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

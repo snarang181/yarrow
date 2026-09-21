@@ -1,0 +1,5 @@
+{
+  "id": "M09_hit_way_inverted",
+  "class": "tag_match",
+  "desc": "Hit-way select uses the wrong comparator output; data accessed from the wrong way."
+}

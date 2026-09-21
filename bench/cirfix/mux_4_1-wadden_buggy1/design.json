@@ -1,0 +1,25 @@
+{
+  "id": "mux_4_1-wadden_buggy1",
+  "project": "mux_4_1",
+  "bug": "wadden_buggy1",
+  "sources": [
+    "mux_4_1.v"
+  ],
+  "top": "mux_4to1_case",
+  "bug_file": "mux_4_1.v",
+  "tables": [
+    {
+      "name": "orig_tb",
+      "file": "orig_tb.csv",
+      "rows": 150
+    }
+  ],
+  "rtl_lines": 18,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/cirfix",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "CirFix: Automatically Repairing Defects in Hardware Design Code (ASPLOS'22); defects injected by the CirFix authors and students (externally authored synthetic control tier X, docs D6)",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "mux_4_1_wadden_buggy1.v"
+  }
+}

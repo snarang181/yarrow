@@ -1,0 +1,25 @@
+{
+  "id": "fsm_full-ssscrazy_buggy2",
+  "project": "fsm_full",
+  "bug": "ssscrazy_buggy2",
+  "sources": [
+    "fsm_full.v"
+  ],
+  "top": "fsm_full",
+  "bug_file": "fsm_full.v",
+  "tables": [
+    {
+      "name": "orig_tb",
+      "file": "orig_tb.csv",
+      "rows": 38
+    }
+  ],
+  "rtl_lines": 114,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/cirfix",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "CirFix: Automatically Repairing Defects in Hardware Design Code (ASPLOS'22); defects injected by the CirFix authors and students (externally authored synthetic control tier X, docs D6)",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "fsm_full_ssscrazy_buggy2.v"
+  }
+}

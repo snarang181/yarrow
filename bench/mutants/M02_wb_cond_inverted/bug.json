@@ -1,0 +1,5 @@
+{
+  "id": "M02_wb_cond_inverted",
+  "class": "dirty",
+  "desc": "Writeback condition inverted: dirty victims are dropped, clean victims written back."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "M22_install_no_valid",
+  "class": "fsm",
+  "desc": "Refill never sets the valid bit; the lookup retries and refills forever."
+}

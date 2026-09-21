@@ -1,0 +1,31 @@
+{
+  "mutant": "axis-switch-d8",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.axis_switch.m_ifaces[0].reg_inst.genblk1.m_axis_tvalid_reg",
+    "cycle": 4,
+    "module": "axis_register",
+    "instance": "TOP.axis_switch.m_ifaces[0].reg_inst.genblk1",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.axis_switch.m_ifaces[0].reg_inst.genblk1.m_axis_tvalid_next",
+      "module": "axis_register"
+    },
+    {
+      "signal": "TOP.axis_switch.m_ifaces[0].reg_inst.s_axis_tvalid",
+      "module": "axis_register"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 2,
+  "set_cycle": 3,
+  "trace_rows": 14,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

@@ -1,0 +1,5 @@
+{
+  "id": "M28_wb_addr_uses_req_index",
+  "class": "addressing",
+  "desc": "Writeback address uses the current request's index; flush writebacks go to stale addresses."
+}

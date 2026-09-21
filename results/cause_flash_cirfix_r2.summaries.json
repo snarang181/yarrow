@@ -1,0 +1,953 @@
+[
+  {
+    "mutant": "decoder_3_to_8-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 123.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.1033
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.103327
+      },
+      "elapsed_s": 123.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y0",
+      "module": "decoder_3to8",
+      "event": "en=1, A=0, B=0, C=0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 28.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.0037
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.003725
+      },
+      "elapsed_s": 28.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y0",
+      "module": "decoder_3to8",
+      "event": "When en=1, A=0, B=0, C=0, Y0 is incorrectly assigned 1 instead of 0.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-super_buggy",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 84.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 14,
+      "cost_usd": 0.0277
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 14,
+        "cost_usd": 0.027707
+      },
+      "elapsed_s": 84.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y6",
+      "module": "decoder_3to8",
+      "event": "en == 0, A == 0, B == 0, C == 0",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 12,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 170.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 0.0517
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 0.05169
+      },
+      "elapsed_s": 170.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "{Y7,Y6,Y5,Y4,Y3,Y2,Y1,Y0}",
+      "module": "decoder_3to8",
+      "event": "The initial corruption occurred at row 0 when `en` was low, and the output `Y7` was incorrectly driven to 0 by the default condition.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 4,
+    "matches_golden": true
+  },
+  {
+    "mutant": "decoder_3_to_8-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 348.6,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 32,
+      "cost_usd": 0.1535
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 32,
+        "cost_usd": 0.15351499999999998
+      },
+      "elapsed_s": 348.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "orig_min_tb",
+      "complete_min_tb"
+    ],
+    "cause": {
+      "signal": "Y7",
+      "module": "decoder_3to8",
+      "event": "At `row 0` (simulation time 0), with inputs `en=0, A=0, B=0, C=0`, the default output pattern `8'b1111111` was used, which due to implicit zero-extension resulted in `Y7` being `0` instead of the expected `1`.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 18,
+    "matches_golden": false
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_all",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 357.6,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 14,
+      "cost_usd": 0.3112
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 14,
+        "cost_usd": 0.311164
+      },
+      "elapsed_s": 357.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "When `counter_out` transitions from `4'b1111` to `4'b0000` while `enable` is high, `overflow_out` was incorrectly cleared to `0` in subsequent cycles (when `counter_out` was not `4'b1111`), instead of remaining asserted until `reset`.",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 35,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_counter",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 396.7,
+    "usage": {
+      "llm_calls": 4,
+      "sims": 25,
+      "cost_usd": 0.1625
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 4,
+        "sims": 25,
+        "cost_usd": 0.162519
+      },
+      "elapsed_s": 396.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_next",
+      "module": "first_counter",
+      "event": "The `overflow_next` signal was incorrectly determined at the first clock cycle after `counter_out` rolled over from `4'b1111` to `4'b0000` while `enable` was high, causing `overflow_out` to become `0` instead of remaining `1`.",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 26,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-buggy_overflow",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 32.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.0052
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.005168
+      },
+      "elapsed_s": 32.1,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "counter_out == 4'b1111",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 30.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.004
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 4,
+        "cost_usd": 0.003995
+      },
+      "elapsed_s": 29.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "counter_out",
+      "module": "first_counter",
+      "event": "The counter was incrementing on both rising and falling edges of the clock, causing it to double increment at row 5 when it should have only incremented once.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "first_counter_overflow-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 163.6,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 16,
+      "cost_usd": 0.0541
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 16,
+        "cost_usd": 0.054121
+      },
+      "elapsed_s": 163.3,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb",
+      "en_test_tb"
+    ],
+    "cause": {
+      "signal": "overflow_out",
+      "module": "first_counter",
+      "event": "counter_out was 4'b1110 and enable was high, causing overflow_out to assert prematurely.",
+      "mechanism": "counter"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 22,
+    "matches_golden": true
+  },
+  {
+    "mutant": "flip_flop-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 116.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0137
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.013672
+      },
+      "elapsed_s": 116.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "q",
+      "module": "tff",
+      "event": "At `time 35` (table row 3), when `rstn` was high (intended inactive reset) and `t` was high, `q` was incorrectly reset to 0 instead of toggling to 1.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "flip_flop-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 63.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 7,
+      "cost_usd": 0.0254
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 7,
+        "cost_usd": 0.025448
+      },
+      "elapsed_s": 62.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "q",
+      "module": "tff",
+      "event": "At the first positive clock edge where `rstn` is low (row 0 to row 1 transition), `q` incorrectly toggles its value due to `t` input logic being active, instead of being synchronously reset to 0.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 43.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0086
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.008648
+      },
+      "elapsed_s": 43.6,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_0",
+      "module": "fsm_full",
+      "event": "When the FSM transitioned from IDLE to GNT0 after `req_0` was asserted, the `gnt_0` output incorrectly remained low for that cycle.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 213.7,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 9,
+      "cost_usd": 0.0973
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 9,
+        "cost_usd": 0.097256
+      },
+      "elapsed_s": 213.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_0",
+      "module": "fsm_full",
+      "event": "req_0 is asserted while in IDLE state, leading to gnt_0 asserting in the same cycle.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 108,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-ssscrazy_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 25.1,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0054
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.005438
+      },
+      "elapsed_s": 24.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "state",
+      "module": "fsm_full",
+      "event": "At row 9 (time 36), when `req_0` becomes high while `state` is `IDLE`, the `state` register is updated to `GNT0` and `gnt_0` is incorrectly asserted high within the same clock cycle.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 30,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-super_buggy",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 921.5,
+    "usage": {
+      "llm_calls": 8,
+      "sims": 48,
+      "cost_usd": 0.7838
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 8,
+        "sims": 48,
+        "cost_usd": 0.7838419999999999
+      },
+      "elapsed_s": 921.2,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_0",
+      "module": "fsm_full",
+      "event": "When `req_0` becomes high, `gnt_0` is asserted in the same clock cycle instead of the next clock cycle.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 41,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fsm_full-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 18.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0046
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.004609
+      },
+      "elapsed_s": 17.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "gnt_3",
+      "module": "fsm_full",
+      "event": "The FSM enters the GNT3 state, but the `gnt_3` signal is not asserted due to commented code.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-buggy_num",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 174.7,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 18,
+      "cost_usd": 0.1044
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 18,
+        "cost_usd": 0.104358
+      },
+      "elapsed_s": 174.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "When `op` holds the value `128` (8'b1000_0000), `load_en` is `0`, and a rising clock edge occurs, `op` incorrectly shifts to `0` instead of reloading the `load_val` (which is `1`).",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 12,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 22.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0052
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.005236
+      },
+      "elapsed_s": 21.7,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "At row 2 (time 50), when `rstn` is high and `load_en` is low, `op` is incorrectly loaded with `load_val` (1) instead of retaining its value (0) or shifting.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "lshift_reg-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 117.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.1174
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.1174
+      },
+      "elapsed_s": 117.5,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "On the rising clock edge at row 9, when `rstn` is high, `load_en` is low, and `op` (from the previous cycle) is `1` (`8'b00000001`).",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 15,
+    "matches_golden": false
+  },
+  {
+    "mutant": "lshift_reg-wadden_buggy2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 50.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 2,
+      "cost_usd": 0.0058
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 2,
+        "cost_usd": 0.005774
+      },
+      "elapsed_s": 50.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "op",
+      "module": "lshift_reg",
+      "event": "At row 7 (time 150), when `rstn` was high and `load_en` was 1, `op` was incorrectly reset to 0 instead of loading `load_val=1`.",
+      "mechanism": "reset"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-buggy_var",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 118.6,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 9,
+      "cost_usd": 0.0659
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 9,
+        "cost_usd": 0.065929
+      },
+      "elapsed_s": 118.4,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "sel == 2'b01",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-kgoliya_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 57.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0259
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 5,
+        "cost_usd": 0.025941
+      },
+      "elapsed_s": 56.9,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "The `sel` input is `2'b01` (binary 1) and the `b` input (which is 4'h2 in row 10 of orig_tb.csv) is assigned to `out`, leading to `out` attempting to store a value greater than 1.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "mux_4_1-wadden_buggy1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 240.0,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 12,
+      "cost_usd": 0.2434
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 12,
+        "sims": 96
+      },
+      "spent": {
+        "llm_calls": 2,
+        "sims": 12,
+        "cost_usd": 0.243418
+      },
+      "elapsed_s": 239.8,
+      "wall_limit_s": 1800.0
+    },
+    "failing_configs": [
+      "orig_tb"
+    ],
+    "cause": {
+      "signal": "out",
+      "module": "mux_4to1_case",
+      "event": "When `sel` is `2'b00`, `out` was incorrectly assigned the value of `b` instead of `a`. This was the first discrepancy observed at `orig_tb` row 0.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 10,
+    "matches_golden": true
+  }
+]

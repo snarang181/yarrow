@@ -1,0 +1,9 @@
+{
+  "id": "H10_rfaddr_x_rstflush",
+  "class": "composed",
+  "parts": [
+    "M10_refill_addr_uses_victim_tag",
+    "M18_reset_flush_done_high"
+  ],
+  "desc": "Refill fetches from the victim's old address instead of the requested address. + flush_done resets to 1, emitting a spurious completion pulse after reset."
+}

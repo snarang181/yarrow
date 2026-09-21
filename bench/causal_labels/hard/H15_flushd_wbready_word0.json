@@ -1,0 +1,43 @@
+{
+  "mutant": "H15_flushd_wbready_word0",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.r_resp_data",
+    "cycle": 27,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.r_resp_data",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M03_flush_checks_way0_dirty",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 35898,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M11_wb_ignores_ready",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 343,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M26_resp_word0",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.r_resp_data",
+        "cycle": 27,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

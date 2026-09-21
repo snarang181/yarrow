@@ -1,0 +1,41 @@
+{
+  "mutant": "axis-fifo-d4",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.axis_fifo_wrapper.axis_fifo_inst.s_axis_tready",
+    "cycle": 67,
+    "module": "axis_fifo",
+    "instance": "TOP.axis_fifo_wrapper.axis_fifo_inst",
+    "kind": "output"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.axis_fifo_wrapper.axis_fifo_inst.full_cur",
+      "module": "axis_fifo"
+    },
+    {
+      "signal": "TOP.axis_fifo_wrapper.axis_fifo_inst.s_axis_tready",
+      "module": "axis_fifo"
+    },
+    {
+      "signal": "TOP.axis_fifo_wrapper.axis_fifo_inst.wr_ptr_cur_next",
+      "module": "axis_fifo"
+    },
+    {
+      "signal": "TOP.axis_fifo_wrapper.axis_fifo_inst.write",
+      "module": "axis_fifo"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [
+      "full_wr"
+    ],
+    "only_buggy": []
+  },
+  "set_size": 4,
+  "set_cycle": 67,
+  "trace_rows": 185,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

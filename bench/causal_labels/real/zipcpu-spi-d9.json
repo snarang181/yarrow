@@ -1,0 +1,27 @@
+{
+  "mutant": "zipcpu-spi-d9",
+  "config": "csv",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.sdspi.fifo_b_wr_data",
+    "cycle": 483791,
+    "module": "sdspi",
+    "instance": "TOP.sdspi",
+    "kind": "state"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.sdspi.fifo_b_wr_data",
+      "module": "sdspi"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 483791,
+  "trace_rows": 522559,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}

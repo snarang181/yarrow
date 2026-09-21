@@ -1,0 +1,35 @@
+{
+  "mutant": "H07_idxslice_x_flushbp",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.r_idx",
+    "cycle": 4,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.r_idx",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M07_index_slice_off_by_one",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.r_idx",
+        "cycle": 4,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M13_flushwb_ignores_ready",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.beat",
+        "cycle": 35892,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

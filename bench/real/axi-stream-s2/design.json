@@ -1,0 +1,25 @@
+{
+  "id": "axi-stream-s2",
+  "project": "axi-stream-s2",
+  "bug": "s2",
+  "sources": [
+    "xlnxstream_2018_3.v"
+  ],
+  "top": "xlnxstream_2018_3",
+  "bug_file": "xlnxstream_2018_3.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 45
+    }
+  ],
+  "rtl_lines": 232,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "xlnxstream_2018_3_bug_s2.v"
+  }
+}

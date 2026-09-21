@@ -1,0 +1,682 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 1289.3,
+    "usage": {
+      "llm_calls": 5,
+      "sims": 57,
+      "cost_usd": 2.4417
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 2,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 42,
+          "cost_usd": 2.015915
+        },
+        {
+          "llm_calls": 1,
+          "sims": 15,
+          "cost_usd": 0.425815
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "xlnxdemo.axi_awready",
+      "module": "xlnxdemo",
+      "event": "S_AXI_AWVALID=1 && S_AXI_WVALID=1 && axi_bvalid=1 at table row 5.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 64.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0522
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 5,
+          "cost_usd": 0.052169
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "xlnxdemo.axi_arready",
+      "module": "xlnxdemo",
+      "event": "S_AXI_ARVALID is high, axi_arready was low in the previous cycle, and a previous read data transaction is still pending (`axi_rvalid` is high and `S_AXI_RREADY` is low).",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 305.3,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 0.3767
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 20,
+          "cost_usd": 0.376682
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "xlnxstream_2018_3.axis_tlast_delay",
+      "module": "xlnxstream_2018_3",
+      "event": "read_pointer` is `NUMBER_OF_OUTPUT_WORDS-1` at row 41 while `M_AXIS_TREADY` is low, incorrectly asserting `axis_tlast`.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 416.8,
+    "usage": {
+      "llm_calls": 2,
+      "sims": 16,
+      "cost_usd": 0.4204
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 2,
+          "sims": 16,
+          "cost_usd": 0.42042
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_adapter.input_axis_tready_reg",
+      "module": "axis_adapter",
+      "event": "input_axis_tlast` asserted with a partial `input_axis_tkeep` (0x1F) when `output_axis_tready` is high, and the design is in `STATE_TRANSFER_OUT` trying to output the partial data. At row 7, the original design fails to assert `output_axis_tlast_int` and transition `state_next` to `STATE_IDLE`, thus keeping `input_axis_tready_next` at 0.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 19,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 3051.4,
+    "usage": {
+      "llm_calls": 13,
+      "sims": 143,
+      "cost_usd": 3.7567
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 43,
+          "cost_usd": 1.6188259999999999
+        },
+        {
+          "llm_calls": 5,
+          "sims": 52,
+          "cost_usd": 1.379835
+        },
+        {
+          "llm_calls": 4,
+          "sims": 48,
+          "cost_usd": 0.758064
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo_wrapper.axis_reg_inst.m_axis_tready",
+      "module": "axis_async_fifo",
+      "event": "async_rst` de-asserts, but `axis_async_fifo.input_rst_sync3` is still active, causing `axis_async_fifo.input_axis_tready` to assert prematurely.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 2709.5,
+    "usage": {
+      "llm_calls": 11,
+      "sims": 166,
+      "cost_usd": 3.2631
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 47,
+          "cost_usd": 1.126344
+        },
+        {
+          "llm_calls": 5,
+          "sims": 58,
+          "cost_usd": 1.297324
+        },
+        {
+          "llm_calls": 2,
+          "sims": 61,
+          "cost_usd": 0.839488
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_fifo.mem[0]",
+      "module": "axis_fifo",
+      "event": "mem[0]` is written with the initial `s_axis_tdata` value when `wr_ptr_cur_reg` is 0, but `wr_addr_reg` (used in original `mem` write) is 1.",
+      "mechanism": "addressing"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 353.7,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 23,
+      "cost_usd": 0.3803
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 3,
+          "sims": 23,
+          "cost_usd": 0.380315
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "write",
+      "module": "axis_fifo",
+      "event": "The FIFO attempts to write data when it is already full.",
+      "mechanism": "FlowControl"
+    },
+    "cause_verified": true,
+    "cause_rounds": 1,
+    "patch_lines": 6,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 125.7,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 5,
+      "cost_usd": 0.0703
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 5,
+          "cost_usd": 0.070331
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_frame_fifo.drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "rst is asserted at row 13 while drop_frame is high.",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 181.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 4,
+      "cost_usd": 0.0815
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 4,
+          "cost_usd": 0.081469
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_frame_len.frame_len_reg",
+      "module": "axis_frame_len",
+      "event": "At table row 4, when `monitor_axis_tready` and `monitor_axis_tvalid` were high and `frame_reg` was 0, `frame_len_next` was not correctly reset to 0 before incrementing, causing it to retain the value from the previous frame.",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 15,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 3085.6,
+    "usage": {
+      "llm_calls": 14,
+      "sims": 132,
+      "cost_usd": 4.6342
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 45,
+          "cost_usd": 1.9138120000000003
+        },
+        {
+          "llm_calls": 4,
+          "sims": 46,
+          "cost_usd": 1.487943
+        },
+        {
+          "llm_calls": 6,
+          "sims": 41,
+          "cost_usd": 1.23253
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "select_valid_reg",
+      "module": "axis_switch",
+      "event": "at row 2, select_valid_reg for input 1 was 0, correctly causing s_axis_tready[1] to be 0, but s_axis_tready for inputs 0, 2, 3 were incorrectly 0 instead of 1 because the original logic incorrectly gated input readiness based on arbiter grant.",
+      "mechanism": "arbitration"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 2392.4,
+    "usage": {
+      "llm_calls": 7,
+      "sims": 72,
+      "cost_usd": 2.9566
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 4,
+          "sims": 50,
+          "cost_usd": 1.934421
+        },
+        {
+          "llm_calls": 2,
+          "sims": 17,
+          "cost_usd": 0.783126
+        },
+        {
+          "llm_calls": 1,
+          "sims": 5,
+          "cost_usd": 0.239119
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "fadd.res_exp_next",
+      "module": "fadd",
+      "event": "at table row 8, when `res_exp_next` is calculated for the input `op1=0`, `op2=1.0` (from table row 6).",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 512.4,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 24,
+      "cost_usd": 1.4702
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 1,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 1,
+          "sims": 24,
+          "cost_usd": 1.470228
+        }
+      ],
+      "attempt_status": [
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "sdspi.lowlevel.r_z_counter",
+      "module": "llsdspi",
+      "event": "r_clk_counter is loaded with i_speed at every clock cycle while startup_hold or byte_accepted is true.",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "fixed",
+    "wall_s": 2232.2,
+    "usage": {
+      "llm_calls": 10,
+      "sims": 111,
+      "cost_usd": 4.3202
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 5,
+          "sims": 37,
+          "cost_usd": 1.4038879999999998
+        },
+        {
+          "llm_calls": 3,
+          "sims": 52,
+          "cost_usd": 2.1274499999999996
+        },
+        {
+          "llm_calls": 2,
+          "sims": 22,
+          "cost_usd": 0.788916
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "fixed"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "sdspi.o_wb_ack",
+      "module": "sdspi",
+      "event": "At table row 6, following a Wishbone write initiated at row 5 (where `i_wb_stb` was high), `o_wb_ack` was asserted by the original design. The reference, however, expected `o_wb_ack` to remain deasserted at row 6, to be asserted only at row 7, indicating a two-cycle write completion latency.",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 9,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-2.5-flash",
+    "status": "exhausted",
+    "wall_s": 4136.8,
+    "usage": {
+      "llm_calls": 9,
+      "sims": 184,
+      "cost_usd": 5.8958
+    },
+    "budget_final": {
+      "limits_per_attempt": {
+        "llm_calls": 6,
+        "sims": 53
+      },
+      "attempts": 3,
+      "spent_per_attempt": [
+        {
+          "llm_calls": 2,
+          "sims": 55,
+          "cost_usd": 2.569507
+        },
+        {
+          "llm_calls": 4,
+          "sims": 66,
+          "cost_usd": 1.971897
+        },
+        {
+          "llm_calls": 3,
+          "sims": 63,
+          "cost_usd": 1.354409
+        }
+      ],
+      "attempt_status": [
+        "exhausted",
+        "exhausted",
+        "exhausted"
+      ]
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "o_wb_data",
+      "module": "sdspi",
+      "event": "At row 1, o_wb_data is 0, but the testbench expects 255. This occurs immediately after reset/initialization and before any active Wishbone transaction.",
+      "mechanism": "initialization"
+    },
+    "cause_verified": null,
+    "cause_rounds": null,
+    "patch_lines": 0,
+    "matches_golden": false
+  }
+]

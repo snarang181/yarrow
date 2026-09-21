@@ -1,0 +1,5 @@
+{
+  "id": "M12_rf_ignores_ready",
+  "class": "backpressure",
+  "desc": "Refill request counter advances without accept; read beats are dropped and the refill hangs."
+}

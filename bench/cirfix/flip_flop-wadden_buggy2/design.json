@@ -1,0 +1,25 @@
+{
+  "id": "flip_flop-wadden_buggy2",
+  "project": "flip_flop",
+  "bug": "wadden_buggy2",
+  "sources": [
+    "tff.v"
+  ],
+  "top": "tff",
+  "bug_file": "tff.v",
+  "tables": [
+    {
+      "name": "orig_tb",
+      "file": "orig_tb.csv",
+      "rows": 11
+    }
+  ],
+  "rtl_lines": 15,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/cirfix",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "CirFix: Automatically Repairing Defects in Hardware Design Code (ASPLOS'22); defects injected by the CirFix authors and students (externally authored synthetic control tier X, docs D6)",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "tff_wadden_buggy2.v"
+  }
+}

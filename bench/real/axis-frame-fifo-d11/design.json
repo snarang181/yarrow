@@ -1,0 +1,25 @@
+{
+  "id": "axis-frame-fifo-d11",
+  "project": "axis-frame-fifo-d11",
+  "bug": "d11",
+  "sources": [
+    "axis_frame_fifo.v"
+  ],
+  "top": "axis_frame_fifo",
+  "bug_file": "axis_frame_fifo.v",
+  "tables": [
+    {
+      "name": "csv",
+      "file": "tb.csv",
+      "rows": 17
+    }
+  ],
+  "rtl_lines": 146,
+  "provenance": {
+    "suite": "rtl-repair/benchmarks/fpga-debugging",
+    "suite_url": "https://github.com/ekiwi/rtl-repair",
+    "upstream_study": "Debugging in the Brave New World of Reconfigurable Hardware (ASPLOS'22), 20 field-collected bugs",
+    "table_semantics": "one row per rising edge; inputs driven, outputs compared pre-edge; recorded by the original Verilog testbenches via @(posedge clk) $fwrite",
+    "upstream_buggy_file": "axis_frame_fifo_bug_d11.v"
+  }
+}

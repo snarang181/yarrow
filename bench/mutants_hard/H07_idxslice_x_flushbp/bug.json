@@ -1,0 +1,9 @@
+{
+  "id": "H07_idxslice_x_flushbp",
+  "class": "composed",
+  "parts": [
+    "M07_index_slice_off_by_one",
+    "M13_flushwb_ignores_ready"
+  ],
+  "desc": "Set index extracted from the wrong address bits. + Flush writeback advances beats without waiting for mem_req_ready."
+}

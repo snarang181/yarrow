@@ -1,0 +1,15 @@
+chia/
+*.DS_Store
+obj_dir/
+__pycache__/
+*.vcd
+runs/
+.venv/
+bench/.validate_work/
+obj_*/
+*.build.log
+bench/.validate_*_work/
+.causal_work*/
+
+# local tool settings
+.claude/

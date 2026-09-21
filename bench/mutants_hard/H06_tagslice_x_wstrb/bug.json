@@ -1,0 +1,9 @@
+{
+  "id": "H06_tagslice_x_wstrb",
+  "class": "composed",
+  "parts": [
+    "M06_tag_slice_off_by_one",
+    "M24_wstrb_ignored"
+  ],
+  "desc": "Tag extracted from the wrong address bits; distinct lines alias. + Byte strobes ignored; partial-word writes clobber neighboring bytes."
+}

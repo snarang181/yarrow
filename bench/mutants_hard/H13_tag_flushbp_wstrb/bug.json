@@ -1,0 +1,10 @@
+{
+  "id": "H13_tag_flushbp_wstrb",
+  "class": "composed",
+  "parts": [
+    "M06_tag_slice_off_by_one",
+    "M13_flushwb_ignores_ready",
+    "M24_wstrb_ignored"
+  ],
+  "desc": "Tag extracted from the wrong address bits; distinct lines alias. + Flush writeback advances beats without waiting for mem_req_ready. + Byte strobes ignored; partial-word writes clobber neighboring bytes."
+}

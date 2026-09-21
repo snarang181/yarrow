@@ -1,0 +1,15 @@
+--- golden/fsm_full.v
++++ buggy/fsm_full.v
+@@ -101,9 +101,9 @@
+         GNT2 : begin
+                  gnt_2 <= #1 1'b1;
+                end
+-        GNT3 : begin
+-                 gnt_3 <= #1 1'b1;
+-               end
++        // GNT3 : begin
++        //          gnt_3 <= #1 1'b1;
++        //        end
+      default : begin
+                  state <= #1 IDLE;
+                end

@@ -1,0 +1,111 @@
+{
+  "mutant": "H09_rstvalid_x_word0",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.valid_arr[0][0]",
+    "cycle": 0,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.hit",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit0",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit1",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.hit_way",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[0][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[0][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[1][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[1][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[2][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[2][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[3][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[3][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[4][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[4][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[5][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[5][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[6][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[6][1]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[7][0]",
+      "module": "cache_ctrl"
+    },
+    {
+      "signal": "TOP.cache_ctrl.valid_arr[7][1]",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M17_reset_valid_high",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.valid_arr[0][0]",
+        "cycle": 0,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M26_resp_word0",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.r_resp_data",
+        "cycle": 27,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

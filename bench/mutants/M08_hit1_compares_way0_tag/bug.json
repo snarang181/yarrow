@@ -1,0 +1,5 @@
+{
+  "id": "M08_hit1_compares_way0_tag",
+  "class": "tag_match",
+  "desc": "Way-1 hit comparator reads way 0's tag; false hits and false misses."
+}

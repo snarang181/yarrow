@@ -1,0 +1,35 @@
+{
+  "mutant": "H10_rfaddr_x_rstflush",
+  "config": "default",
+  "seed": 101,
+  "first_divergence": {
+    "signal": "TOP.cache_ctrl.flush_done",
+    "cycle": 0,
+    "module": "cache_ctrl"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.cache_ctrl.flush_done",
+      "module": "cache_ctrl"
+    }
+  ],
+  "parts": [
+    {
+      "mutant": "M10_refill_addr_uses_victim_tag",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.mem_req_addr",
+        "cycle": 5,
+        "module": "cache_ctrl"
+      }
+    },
+    {
+      "mutant": "M18_reset_flush_done_high",
+      "first_divergence": {
+        "signal": "TOP.cache_ctrl.flush_done",
+        "cycle": 0,
+        "module": "cache_ctrl"
+      }
+    }
+  ],
+  "notes": "open-loop replay; state-first and all-traced-signal VCD diffs"
+}

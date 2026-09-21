@@ -1,0 +1,515 @@
+[
+  {
+    "mutant": "axi-lite-s1b",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 174.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.4208
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.42078
+      },
+      "elapsed_s": 174.1,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1b"
+    ],
+    "cause": {
+      "signal": "axi_awready",
+      "module": "xlnxdemo",
+      "event": "A master holds write address/data valids high after a handshake while the write response is pending",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 14,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axi-lite-s1r",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 325.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.7851
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.785057
+      },
+      "elapsed_s": 325.5,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "s1r"
+    ],
+    "cause": {
+      "signal": "axi_arready",
+      "module": "xlnxdemo",
+      "event": "S_AXI_ARVALID is high but the previous read data hasn't been handshook (axi_rvalid is 1 and S_AXI_RREADY is 0)",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axi-stream-s2",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 272.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 20,
+      "cost_usd": 1.0413
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 20,
+        "cost_usd": 1.04134
+      },
+      "elapsed_s": 272.4,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "axis_tlast_delay",
+      "module": "xlnxstream_2018_3",
+      "event": "M_AXIS_TREADY goes low while read_pointer is at the penultimate word",
+      "mechanism": "backpressure"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "axis-adapter-s3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 258.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 6,
+      "cost_usd": 0.9804
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 6,
+        "cost_usd": 0.980366
+      },
+      "elapsed_s": 258.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "input_axis_tready_reg",
+      "module": "axis_adapter",
+      "event": "when a narrow output transfer encounters the last valid byte of a packet (where subsequent tkeep bits are 0 but current are 1s).",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 24,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-async-fifo-c4",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 796.3,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 54,
+      "cost_usd": 2.9135
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 54,
+        "cost_usd": 2.9135210000000002
+      },
+      "elapsed_s": 796.2,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "input_axis_tready",
+      "module": "axis_async_fifo",
+      "event": "asserts during reset because it only checks if not full",
+      "mechanism": "missing_reset"
+    },
+    "cause_verified": false,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d12",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 136.9,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.5258
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.525835
+      },
+      "elapsed_s": 136.8,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame_reg",
+      "module": "axis_fifo",
+      "event": "The upstream source deasserts `s_axis_tvalid` while a frame is in the process of being dropped.",
+      "mechanism": "fsm"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-fifo-d4",
+    "system": "flat",
+    "status": "error",
+    "error": "\u001b[36mray::flat_solve()\u001b[39m (pid=510556, ip=<internal-ip>)\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 401, in _chia_trampoline\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/yarrow/baselines.py\", line 91, in flat_solve\n    rt = node.turn(\"cause_retry\", agent.render(\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/yarrow/solver.py\", line 126, in turn\n    t = agent.agent_turn(self.cfg[\"backend\"], self.cfg.get(\"model\"),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/yarrow/agent.py\", line 139, in agent_turn\n    t = get(_prompt_with_usage.chia_remote(llm, prompt_text,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 691, in get\n    raw = ray.get(ref, timeout=timeout, _use_object_store=_use_object_store)  # type: ignore[call-overload]\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           ^^^^^^^^^^^^^^^^^^^\n           ^^^^^^^^^^^^^^^^^^^^^\n                                  ^^^^^^^^^^^^^^^^^^^\nray.exceptions.RayTaskError(InvalidRequestError): + Exception Group Traceback (most recent call last):\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |   File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 379, in _run_coroutine\n  |     return asyncio.run(coro)\n  |            ^^^^^^^^^^^^^^^^^\n  |   File \"/usr/lib/python3.12/asyncio/runners.py\", line 194, in run\n  |     return runner.run(main)\n  |            ^^^^^^^^^^^^^^^^\n  |   File \"/usr/lib/python3.12/asyncio/runners.py\", line 118, in run\n  |     return self._loop.run_until_complete(task)\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |   File \"/usr/lib/python3.12/asyncio/base_events.py\", line 687, in run_until_complete\n  |     return future.result()\n  |            ^^^^^^^^^^^^^^^\n  |   File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 422, in _run_generate_async\n  |     async with AsyncExitStack() as stack:\n  |   File \"/usr/lib/python3.12/contextlib.py\", line 754, in __aexit__\n  |     raise exc_details[1]\n  |   File \"/usr/lib/python3.12/contextlib.py\", line 737, in __aexit__\n  |     cb_suppress = await cb(*exc_details)\n  |                   ^^^^^^^^^^^^^^^^^^^^^^\n  |   File \"/usr/lib/python3.12/contextlib.py\", line 231, in __aexit__\n  |     await self.gen.athrow(value)\n  |   File \"/home/user/yarrow/.venv/lib/python3.12/site-packages/mcp/client/streamable_http.py\", line 647, in streamable_http_client\n  |     async with anyio.create_task_group() as tg:\n  |   File \"/home/user/yarrow/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\", line 815, in __aexit__\n  |     raise BaseExceptionGroup(\n  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)\n  +-+---------------- 1 ----------------\n    | Exception Group Traceback (most recent call last):\n    |   File \"/home/user/yarrow/.venv/lib/python3.12/site-packages/mcp/client/streamable_http.py\", line 670, in streamable_http_client\n    |     yield (\n    |   File \"/usr/lib/python3.12/contextlib.py\", line 737, in __aexit__\n    |     cb_suppress = await cb(*exc_details)\n    |                   ^^^^^^^^^^^^^^^^^^^^^^\n    |   File \"/home/user/yarrow/.venv/lib/python3.12/site-packages/mcp/shared/session.py\", line 238, in __aexit__\n    |     return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |   File \"/home/user/yarrow/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\", line 815, in __aexit__\n    |     raise BaseExceptionGroup(\n    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)\n    +-+---------------- 1 ----------------\n      | Traceback (most recent call last):\n      |   File \"python/ray/_raylet.pyx\", line 1811, in ray._raylet.execute_task\n      |   File \"python/ray/_raylet.pyx\", line 1922, in ray._raylet.execute_task\n      |   File \"python/ray/_raylet.pyx\", line 1818, in ray._raylet.execute_task\n      |   File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 401, in _chia_trampoline\n      |     return func(*args, **kwargs)\n      |            ^^^^^^^^^^^^^^^^^^^^^\n      |   File \"/home/user/yarrow/yarrow/agent.py\", line 105, in _prompt_with_usage\n      |     cli = llm.prompt(prompt_text, tools=list(tools or []))\n      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      |   File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 120, in _wrapper\n      |     return func(*args, **kwargs)\n      |            ^^^^^^^^^^^^^^^^^^^^^\n      |   File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 289, in prompt\n      |     cli = self._run_generate(user_message, tools)\n      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      |   File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 369, in _run_generate\n      |     raise translated from exc\n      |   File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 475, in _run_generate_async\n      |     raise translated from exc\n      | chia.models.vertex.InvalidRequestError: invalid_request on c430529aa00fce2b451b5d7b6614c51471823f369a5a0db20d661c04: The input token count exceeds the maximum number of tokens allowed 1048576.\n      +------------------------------------\n\nThe above exception was the direct cause of the following exception:\n\n\u001b[36mray::_prompt_with_usage()\u001b[39m (pid=510551, ip=<internal-ip>)\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 401, in _chia_trampoline\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/yarrow/agent.py\", line 105, in _prompt_with_usage\n    cli = llm.prompt(prompt_text, tools=list(tools or []))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 120, in _wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 289, in prompt\n    cli = self._run_generate(user_message, tools)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 369, in _run_generate\n    raise translated from exc\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 475, in _run_generate_async\n    raise translated from exc\nchia.models.vertex.InvalidRequestError: invalid_request on c430529aa00fce2b451b5d7b6614c51471823f369a5a0db20d661c04: The input token count exceeds the maximum number of tokens allowed 1048576.\n c430529aa00fce2b451b5d7b6614c51471823f369a5a0db20d661c04: The input token count exceeds the maximum number of tokens allowed 1048576.\n      +------------------------------------\n\nThe above exception was the direct cause of the following exception:\n\n\u001b[36mray::_prompt_with_usage()\u001b[39m (pid=510551, ip=<internal-ip>)\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 401, in _chia_trampoline\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/yarrow/agent.py\", line 105, in _prompt_with_usage\n    cli = llm.prompt(prompt_text, tools=list(tools or []))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/base/ChiaFunction.py\", line 120, in _wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 289, in prompt\n    cli = self._run_generate(user_message, tools)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 369, in _run_generate\n    raise translated from exc\n  File \"/home/user/yarrow/chia/chia/models/vertex.py\", line 475, in _run_generate_async\n    raise translated from exc\nchia.models.vertex.InvalidRequestError: invalid_request on c430529aa00fce2b451b5d7b6614c51471823f369a5a0db20d661c04: The input token count exceeds the maximum number of tokens allowed 1048576.\n"
+  },
+  {
+    "mutant": "axis-frame-fifo-d11",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 86.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 3,
+      "cost_usd": 0.0808
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 3,
+        "cost_usd": 0.080818
+      },
+      "elapsed_s": 86.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "drop_frame",
+      "module": "axis_frame_fifo",
+      "event": "rst is asserted while drop_frame is 1",
+      "mechanism": "reset"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 2,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-frame-len-d13",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 248.2,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.8931
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.893074
+      },
+      "elapsed_s": 248.0,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "frame_len_reg",
+      "module": "axis_frame_len",
+      "event": "A 1-beat frame is transferred (monitor_axis_tlast is true while frame_reg is 0)",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 10,
+    "matches_golden": true
+  },
+  {
+    "mutant": "axis-switch-d8",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 140.5,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 8,
+      "cost_usd": 0.4297
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 8,
+        "cost_usd": 0.429671
+      },
+      "elapsed_s": 140.3,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "m_axis_tvalid_reg",
+      "module": "axis_register",
+      "event": "whenever valid/ready handshake signals are routed across the switch logic in a non-square master/slave configuration",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 4,
+    "matches_golden": true
+  },
+  {
+    "mutant": "fadd-d7",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 261.0,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 10,
+      "cost_usd": 0.6055
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 10,
+        "cost_usd": 0.605455
+      },
+      "elapsed_s": 260.8,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "res",
+      "module": "fadd",
+      "event": "When computing `1.0 + 0.0`, the non-overflowed mantissa is incorrectly shifted and its exponent decremented during normalization.",
+      "mechanism": "datapath"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 10,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-c1",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 2895.2,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 47,
+      "cost_usd": 4.7466
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 47,
+        "cost_usd": 4.74661
+      },
+      "elapsed_s": 2894.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "r_z_counter",
+      "module": "llsdspi",
+      "event": "when the clock divider counter first reaches 1 during startup_hold",
+      "mechanism": "counter"
+    },
+    "cause_verified": true,
+    "cause_rounds": 2,
+    "patch_lines": 2,
+    "matches_golden": false
+  },
+  {
+    "mutant": "zipcpu-spi-c3",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 366.8,
+    "usage": {
+      "llm_calls": 1,
+      "sims": 16,
+      "cost_usd": 1.5072
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 1,
+        "sims": 16,
+        "cost_usd": 1.507186
+      },
+      "elapsed_s": 366.6,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "o_wb_ack",
+      "module": "sdspi",
+      "event": "whenever a Wishbone request is accepted (`wb_stb` is active)",
+      "mechanism": "handshake"
+    },
+    "cause_verified": true,
+    "cause_rounds": 0,
+    "patch_lines": 6,
+    "matches_golden": true
+  },
+  {
+    "mutant": "zipcpu-spi-d9",
+    "system": "flat",
+    "backend": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "status": "fixed",
+    "wall_s": 3388.1,
+    "usage": {
+      "llm_calls": 3,
+      "sims": 59,
+      "cost_usd": 4.8202
+    },
+    "budget_final": {
+      "limits": {
+        "llm_calls": 20,
+        "sims": 160
+      },
+      "spent": {
+        "llm_calls": 3,
+        "sims": 59,
+        "cost_usd": 4.820156000000001
+      },
+      "elapsed_s": 3387.9,
+      "wall_limit_s": 2700.0
+    },
+    "failing_configs": [
+      "csv"
+    ],
+    "cause": {
+      "signal": "fifo_b_wr_data",
+      "module": "sdspi",
+      "event": "First Wishbone block write to FIFO B",
+      "mechanism": "endianness"
+    },
+    "cause_verified": true,
+    "cause_rounds": 2,
+    "patch_lines": 16,
+    "matches_golden": false
+  }
+]

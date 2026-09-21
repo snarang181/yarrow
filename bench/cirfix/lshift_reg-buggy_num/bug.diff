@@ -1,0 +1,16 @@
+--- golden/lshift_reg.v
++++ buggy/lshift_reg.v
+@@ -19,7 +19,7 @@
+         if (load_en) begin
+           op <= load_val;
+         end else begin
+-            for (i = 0; i < 8; i = i + 1) begin
++            for (i = 2; i < 8; i = i + 1) begin
+               op[i+1] <= op[i];
+             end
+             op[0] <= op[7];
+@@ -27,4 +27,4 @@
+       end
+     end
+ endmodule
+- + 

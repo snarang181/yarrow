@@ -1,0 +1,27 @@
+{
+  "mutant": "decoder_3_to_8-wadden_buggy1",
+  "config": "orig_tb",
+  "seed": null,
+  "first_divergence": {
+    "signal": "TOP.decoder_3to8.Y7",
+    "cycle": 0,
+    "module": "decoder_3to8",
+    "instance": "TOP.decoder_3to8",
+    "kind": "output"
+  },
+  "first_divergence_set": [
+    {
+      "signal": "TOP.decoder_3to8.Y7",
+      "module": "decoder_3to8"
+    }
+  ],
+  "parts": [],
+  "structural_diff": {
+    "only_golden": [],
+    "only_buggy": []
+  },
+  "set_size": 1,
+  "set_cycle": 0,
+  "trace_rows": 27,
+  "notes": "table replay (open loop by construction); pre-edge sampling; state-first = signals assigned with <= in always blocks; module = instantiated module type, instance = VCD scope path"
+}
